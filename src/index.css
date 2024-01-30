@@ -17,6 +17,12 @@ body {
   padding: 0;
   height: 100%;
   color: #1B1A1A;
+  background-color: #F7F7F7;
+}
+
+p, h1, h2, h3, h4 {
+  margin: 0;
+  padding: 0;
 }
 
 ::selection {
@@ -57,7 +63,36 @@ nav a{
   gap: 10px;
 }
 
+.filters{
+  background-color: #FFFFFF;
+  width: fit-content;
+  padding: 1rem 5rem;
+}
 
+.filters-flexbox{
+  display: flex;
+  padding: 1rem 0;
+}
+
+.filters-item{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.catalog-grid{
+  padding: 0 1rem;
+  display: grid;
+  grid-auto-rows: minmax(100px, auto);
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.catalog-item{
+  width: 14rem;
+  height: 16rem;
+  background-color: #875f5f;
+}
 
 
 

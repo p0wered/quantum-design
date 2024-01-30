@@ -1,20 +1,22 @@
 import {BrowserRouter, NavLink, Route, Routes} from "react-router-dom";
 import Home from "./routes/home-page";
-import NewPage from "./routes/new-page";
+import AboutPage from "./routes/about-page";
 import React from "react";
+import CategoryPage from "./routes/category-page";
 
 function NavBar() {
-  return (
-      <nav>
-          <div className='container navbar-container'>
-              <p>Wishbones<span className="logo-span">+Partners</span></p>
-              <div className="navbar-links">
-                  <NavLink to="/">Home</NavLink>
-                  <NavLink to="/about">About</NavLink>
-              </div>
-          </div>
-      </nav>
-  );
+    return (
+        <nav>
+            <div className='container navbar-container'>
+                <p>Wishbones<span className="logo-span">+Partners</span></p>
+                <div className="navbar-links">
+                    <NavLink to="/">Home</NavLink>
+                    <NavLink to="/about">About</NavLink>
+                    <NavLink to="/catalog">Catalog</NavLink>
+                </div>
+            </div>
+        </nav>
+    );
 }
 
 export default function App() {
@@ -23,8 +25,9 @@ export default function App() {
             <NavBar/>
             <Routes>
                 <Route path="/" element={<Home/>}/>
-                <Route path="/about" element={<NewPage/>}/>
+                <Route path="/about" element={<AboutPage/>}/>
+                <Route path="/catalog" element={<CategoryPage/>}></Route>
             </Routes>
-      </BrowserRouter>
-  );
+        </BrowserRouter>
+    );
 }
