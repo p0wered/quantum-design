@@ -47,7 +47,7 @@ function CatalogItem({product}) {
     )
 }
 
-function CatalogGrid({products, filter}) {
+function CatalogGrid({products}) {
     let all = []
 
     products.forEach(product => {
@@ -62,7 +62,6 @@ function CatalogGrid({products, filter}) {
 }
 
 export default function CategoryPage() {
-    let [selectedCategories, setSelectedCategories] = useState([])
 
     return (
         <div>
