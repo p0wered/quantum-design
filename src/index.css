@@ -84,14 +84,19 @@ nav a{
   padding: 0 1rem;
   display: grid;
   grid-auto-rows: minmax(100px, auto);
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 10px;
 }
 
 .catalog-item{
-  width: 14rem;
+  width: 13rem;
   height: 16rem;
   background-color: #875f5f;
+  padding: 1rem;
+}
+
+.not-stocked{
+  background-color: #838383 !important;
 }
 
 
