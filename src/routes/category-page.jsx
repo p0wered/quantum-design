@@ -63,11 +63,17 @@ function CatalogItem({product}) {
 function CatalogGrid({products, filter}) {
     let items = []
 
-    products.forEach(product => {
-        if (filter.includes(product.category)) {
+    if (filter.length === 0) {
+        products.forEach(product => {
             items.push(<CatalogItem product={product} key={product}/>)
-        }
-    })
+        })
+    } else {
+        products.forEach(product => {
+            if (filter.includes(product.category)) {
+                items.push(<CatalogItem product={product} key={product}/>)
+            }
+        })
+    }
 
     return(
         <div className="catalog-grid">
