@@ -8,7 +8,12 @@ function NavBar() {
     return (
         <nav>
             <div className='container navbar-container'>
-                <p>Wishbones<span className="logo-span">+Partners</span></p>
+                <div className="navbar-links">
+                    <NavLink to="/">Home</NavLink>
+                    <NavLink to="/about">About</NavLink>
+                    <NavLink to="/catalog">Catalog</NavLink>
+                </div>
+                <NavLink to="/">Quantum<span style={{fontWeight: 700}}>Design</span></NavLink>
                 <div className="navbar-links">
                     <NavLink to="/">Home</NavLink>
                     <NavLink to="/about">About</NavLink>

@@ -1,31 +1,31 @@
 export const PRODUCTS = [
     {
-        category: "Фрукты",
-        name: "Яблоко",
+        category: "Cases",
+        name: "Terra",
         price: 69.99,
         stock: 100
     },
     {
-        category: "Фрукты",
-        name: "Банан",
+        category: "Cases",
+        name: "North",
         price: 79.99,
         stock: 70
     },
     {
-        category: "Фрукты",
-        name: "Апельсин",
+        category: "Cases",
+        name: "Ridge",
         price: 59.99,
         stock: 60
     },
     {
-        category: "Овощи",
-        name: "Морковь",
+        category: "Cases",
+        name: "Pop",
         price: 39.99,
         stock: 150
     },
     {
-        category: "Овощи",
-        name: "Картошка",
+        category: "Cases",
+        name: "Torrent",
         price: 29.99,
         stock: 200
     },

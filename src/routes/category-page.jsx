@@ -1,5 +1,17 @@
 import {PRODUCTS} from "./products";
 import {useState} from "react";
+import titleImg from '../assets/products.jpg'
+
+export function TitleSection({ image, title, desc }) {
+    let divStyle = {backgroundImage: `url(${image})`}
+
+    return (
+        <div className='title-section' style={divStyle}>
+            <h2 style={{fontSize: '72px'}}>{title}</h2>
+            <p className='title-section-desc'>{desc}</p>
+        </div>
+    );
+}
 
 function Filters({ products, setCategories }) {
     const rows = [];
@@ -87,6 +99,7 @@ export default function CategoryPage() {
 
     return (
         <div>
+            <TitleSection image={titleImg} title='PRODUCTS' desc='See all products'/>
             <div className='filters-flexbox'>
                 <Filters products={PRODUCTS} categories={selectedCategories} setCategories={setSelectedCategories} />
                 <CatalogGrid products={PRODUCTS} filter={selectedCategories} />

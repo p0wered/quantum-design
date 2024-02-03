@@ -26,14 +26,16 @@ p, h1, h2, h3, h4 {
 }
 
 ::selection {
-  background: rgb(0, 55, 255);
+  background: rgba(0, 0, 0, 0.4);
 }
 
 ::-moz-selection {
-  background: rgb(0, 54, 255);
+  background: rgba(0, 0, 0, 0.4);
 }
 
 nav{
+  width: 100vw;
+  position: fixed;
   background-color: #FFFFFF;
 }
 
@@ -52,10 +54,6 @@ nav{
 nav a{
   color: #1B1A1A;
   text-decoration: none;
-}
-
-.logo-span{
-  font-weight: 800;
 }
 
 .navbar-links{
@@ -99,5 +97,25 @@ nav a{
   background-color: #838383 !important;
 }
 
+.home-section-1{
+  width: 100vw;
+  height: 100vh;
+  background: url("../public/img/north.jpg") top center;
+}
 
+.title-section{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: #FFFFFF;
+  height: 75vh;
+  background-position: center;
+  background-size: cover;
+}
 
+.title-section-desc{
+  font-size: 24px;
+  letter-spacing: 5px;
+  font-weight: 300;
+}
