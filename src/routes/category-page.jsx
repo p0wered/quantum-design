@@ -1,19 +1,26 @@
 import {PRODUCTS} from "./products";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import titleImg from '../assets/products.jpg'
+import Aos from 'aos'
+import 'aos/dist/aos.css'
 
 export function TitleSection({ image, title, desc }) {
+    useEffect(() => {
+        Aos.init();
+    }, []);
+
     let divStyle = {backgroundImage: `url(${image})`}
 
     return (
-        <div className='title-section' style={divStyle}>
-            <h2 style={{fontSize: '72px'}}>{title}</h2>
-            <p className='title-section-desc'>{desc}</p>
+        <div className='title-section image-box' style={divStyle}>
+            <h1 data-aos='fade-up' data-aos-duration='1000'>{title}</h1>
+            <h4 className='title-section-desc' data-aos='fade-up' data-aos-duration='1000'
+                data-aos-delay='100'>{desc}</h4>
         </div>
     );
 }
 
-function Filters({ products, setCategories }) {
+function Filters({products, setCategories}) {
     const rows = [];
     let lastCategory = [];
     products.forEach((product) => {
@@ -99,7 +106,7 @@ export default function CategoryPage() {
 
     return (
         <div>
-            <TitleSection image={titleImg} title='PRODUCTS' desc='See all products'/>
+            <TitleSection image={titleImg} title='PRODUCTS' desc='See all categories'/>
             <div className='filters-flexbox'>
                 <Filters products={PRODUCTS} categories={selectedCategories} setCategories={setSelectedCategories} />
                 <CatalogGrid products={PRODUCTS} filter={selectedCategories} />

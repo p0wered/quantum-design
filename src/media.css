@@ -10,3 +10,14 @@
     }
 }
 
+@media screen and (max-width: 900px) {
+    h1{
+        font-size: 52px;
+    }
+    h4{
+        font-size: 18px;
+    }
+    p{
+        font-size: 16px;
+    }
+}
