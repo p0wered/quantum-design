@@ -49,17 +49,26 @@ a, a:visited, a:hover, a:active {
 }
 
 nav{
-  color: white;
   width: 100vw;
   position: fixed;
-  background: linear-gradient(#0009,#fff0);
   transition: 0.3s;
   z-index: 1;
+  top: 0;
 }
 
 nav:hover{
   color: #1B1A1A;
   background: white;
+}
+
+.nav-active{
+  color: #1B1A1A;
+  background: white;
+}
+
+.nav-not-active{
+  background: linear-gradient(#0009,#fff0);
+  color: white;
 }
 
 .container{
@@ -76,6 +85,7 @@ nav:hover{
 
 nav a{
   text-decoration: none;
+  font-size: 20px;
 }
 
 .navbar-links{
