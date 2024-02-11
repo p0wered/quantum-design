@@ -3,12 +3,17 @@ import Home from "./routes/home-page";
 import AboutPage from "./routes/about-page";
 import React, {useEffect, useState} from "react";
 import CategoryPage from "./routes/category-page";
+import {Squash} from "hamburger-react";
 
 function NavBar() {
 
     let [navPosition, setNavPosition] = useState(0);
-    let [prevScroll, setPrevScroll] = useState(0)
-    let [navClass, setNavClass] = useState('nav-active')
+    let [prevScroll, setPrevScroll] = useState(0);
+    let [navClass, setNavClass] = useState('nav-not-active');
+    let [isOpen, setIsOpen] = useState(false);
+    let menuDisplay = 0
+
+    isOpen ? menuDisplay = 0 : menuDisplay = '100vw'
 
     useEffect(() => {
         const handleScroll = event => {
@@ -17,7 +22,7 @@ function NavBar() {
             if (currentScrollTop > 15 && currentScrollTop > prevScroll) {
                 setNavPosition(-79);
                 setNavClass('nav-not-active');
-            } else if (currentScrollTop > 15 && currentScrollTop < prevScroll) {
+            } else if ((currentScrollTop > 15 && currentScrollTop < prevScroll) || isOpen) {
                 setNavPosition(0);
                 setNavClass('nav-active');
             } else if (currentScrollTop < 15) {
@@ -33,7 +38,7 @@ function NavBar() {
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
-    }, [prevScroll]);
+    }, [prevScroll, isOpen]);
 
     return (
         <div>
@@ -44,17 +49,16 @@ function NavBar() {
                         <NavLink to="/about">About</NavLink>
                         <NavLink to="/catalog">Catalog</NavLink>
                     </div>
-                    <NavLink to="/">Quantum<span style={{fontWeight: 700}}>Design</span></NavLink>
-                    <div className="navbar-links">
-                        <NavLink to="/">Home</NavLink>
-                        <NavLink to="/about">About</NavLink>
-                        <NavLink to="/catalog">Catalog</NavLink>
+                    <NavLink to="/" style={{marginRight: '6rem'}}>Quantum<span style={{fontWeight: 700}}>Design</span></NavLink>
+                    <div className="navbar-links links-right">
+                        <NavLink to="/"><i className="bi bi-bag"></i></NavLink>
+                        <NavLink to="/"><i className="bi bi-person-circle" style={{fontSize: 26}}></i></NavLink>
+                        <NavLink to="/"><i className="bi bi-search"></i></NavLink>
                     </div>
+                    <Squash toggled={isOpen} toggle={setIsOpen}></Squash>
                 </div>
             </nav>
-            <div className='nav'>
-
-            </div>
+            <div className='mobile-menu' style={{left: menuDisplay}}></div>
         </div>
     );
 }
