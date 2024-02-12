@@ -14,7 +14,7 @@ export function TitleSection({ image, title, desc }) {
     return (
         <div className='title-section image-box' style={divStyle}>
             <h1 data-aos='fade-up' data-aos-duration='1000'>{title}</h1>
-            <h4 className='title-section-desc' data-aos='fade-up' data-aos-duration='1000'
+            <h4 className='desc' data-aos='fade-up' data-aos-duration='1000'
                 data-aos-delay='100'>{desc}</h4>
         </div>
     );

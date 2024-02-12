@@ -52,13 +52,8 @@ nav{
   width: 100vw;
   position: fixed;
   transition: 0.3s;
-  z-index: 1;
+  z-index: 2;
   top: 0;
-}
-
-nav:hover{
-  color: #1B1A1A;
-  background: white;
 }
 
 .nav-active{
@@ -114,12 +109,36 @@ nav a:hover{
 }
 
 .mobile-menu{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 6rem 2rem;
   left: 100vw;
   height: 100vh;
   width: 100%;
   position: fixed;
   background-color: white;
   transition: 0.3s;
+  z-index: 1;
+  overflow-y: scroll;
+}
+
+.mobile-navbar-links{
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+}
+
+.mobile-navbar-links a{
+  color: #1B1A1A;
+  font-size: 48px;
+  text-decoration: none;
+}
+
+.links-bottom{
+  display: flex;
+  gap: 30px;
+  margin-top: 1rem;
 }
 
 .bi{
@@ -176,10 +195,14 @@ nav a:hover{
   background-color: #838383 !important;
 }
 
-.home-section-1{
-  width: 100vw;
+.product-section{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   height: 100vh;
-  background: url("../public/img/north.jpg") top center;
+  color: white;
+
 }
 
 .image-box{
@@ -204,7 +227,7 @@ nav a:hover{
   height: 75vh;
 }
 
-.title-section-desc{
+.desc{
   letter-spacing: 5px;
   font-weight: 300;
 }

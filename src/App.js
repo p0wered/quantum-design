@@ -11,25 +11,29 @@ function NavBar() {
     let [prevScroll, setPrevScroll] = useState(0);
     let [navClass, setNavClass] = useState('nav-not-active');
     let [isOpen, setIsOpen] = useState(false);
-    let menuDisplay = 0
+    let menuDisplay;
 
-    isOpen ? menuDisplay = 0 : menuDisplay = '100vw'
+    if (isOpen) {
+        navClass = 'nav-active'
+        menuDisplay = 0
+    } else {
+        menuDisplay = '100vw'
+    }
 
     useEffect(() => {
-        const handleScroll = event => {
+        const handleScroll = () => {
             let currentScrollTop = window.scrollY;
 
             if (currentScrollTop > 15 && currentScrollTop > prevScroll) {
-                setNavPosition(-79);
+                setNavPosition(-100);
                 setNavClass('nav-not-active');
-            } else if ((currentScrollTop > 15 && currentScrollTop < prevScroll) || isOpen) {
+            } else if (currentScrollTop > 15 && currentScrollTop < prevScroll) {
                 setNavPosition(0);
                 setNavClass('nav-active');
             } else if (currentScrollTop < 15) {
                 setNavPosition(0);
                 setNavClass('nav-not-active');
             }
-
             setPrevScroll(currentScrollTop);
         };
 
@@ -58,7 +62,18 @@ function NavBar() {
                     <Squash toggled={isOpen} toggle={setIsOpen}></Squash>
                 </div>
             </nav>
-            <div className='mobile-menu' style={{left: menuDisplay}}></div>
+            <div className='mobile-menu' style={{left: menuDisplay}}>
+                <div className="mobile-navbar-links">
+                    <NavLink className='mobile-link' to="/">Home</NavLink>
+                    <NavLink className='mobile-link' to="/about">About</NavLink>
+                    <NavLink className='mobile-link' to="/catalog">Catalog</NavLink>
+                </div>
+                <div className="links-bottom">
+                    <NavLink to="/"><i className="bi bi-bag" style={{fontSize: 42}}></i></NavLink>
+                    <NavLink to="/"><i className="bi bi-person-circle" style={{fontSize: 42}}></i></NavLink>
+                    <NavLink to="/"><i className="bi bi-search" style={{fontSize: 42}}></i></NavLink>
+                </div>
+            </div>
         </div>
     );
 }
