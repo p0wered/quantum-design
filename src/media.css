@@ -2,11 +2,17 @@
     .container{
         max-width: 1140px;
     }
+    .slider-container{
+        width: 1200px;
+    }
 }
 
 @media screen and (max-width: 1200px) {
     .container{
         max-width: 960px;
+    }
+    .slider-container{
+        width: 1000px;
     }
 }
 
@@ -22,7 +28,7 @@
     }
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 920px) {
     h1{
         font-size: 52px;
     }

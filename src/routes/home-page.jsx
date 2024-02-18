@@ -1,25 +1,17 @@
 import NorthImg from '../assets/north.jpg';
 import React from 'react'
 import Slider from 'react-slick';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
-function SampleNextArrow(props) {
-    const { className, style, onClick } = props;
-    return (
-        <div className={className} onClick={onClick}>
-            <i className="bi bi-bag"></i>
-        </div>
-    );
-}
-
-function SimpleSlider() {
+function SimpleSlider({ slidesNumber }) {
     let settings = {
         dots: false,
         infinite: true,
         speed: 300,
-        slidesToShow: 3,
-        slidesToScroll: 3,
-        adaptiveHeight: true,
-        nextArrow: <SampleNextArrow/>
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        adaptiveHeight: true
     };
     return (
         <Slider {...settings}>
@@ -51,10 +43,14 @@ function ProductSection({image, title, desc, category}) {
 }
 
 function SaleSection() {
+    let slidesNumber;
+    (window.width > 1200) ? slidesNumber = 4 : slidesNumber = 3
+
     return (
         <div className='sale-section'>
+            <h2>BEST SALES</h2>
             <div className='slider-container'>
-                <SimpleSlider/>
+                <SimpleSlider slidesNumber={slidesNumber}/>
             </div>
         </div>
     );
@@ -65,6 +61,7 @@ export default function Home() {
         <div>
             <ProductSection image={NorthImg} title='NORTH' desc='Transform your gaming space' category='CASES'/>
             <SaleSection/>
+            <ProductSection/>
         </div>
     );
 }
