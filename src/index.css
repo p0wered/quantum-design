@@ -274,6 +274,7 @@ nav a:hover{
   padding: 2rem;
   background-color: #1B1A1A;
   text-align: center;
+  overflow: hidden;
 }
 
 .slider-container{

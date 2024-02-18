@@ -44,6 +44,10 @@ function NavBar() {
         };
     }, [prevScroll, isOpen]);
 
+    function closeOnClick() {
+        isOpen ? isOpen = false : isOpen = true
+    }
+
     return (
         <div>
             <nav className={navClass} style={{top: `${navPosition}px`}}>
@@ -64,9 +68,9 @@ function NavBar() {
             </nav>
             <div className='mobile-menu' style={{left: menuDisplay}}>
                 <div className="mobile-navbar-links">
-                    <NavLink className='mobile-link' to="/">Home</NavLink>
-                    <NavLink className='mobile-link' to="/about">About</NavLink>
-                    <NavLink className='mobile-link' to="/catalog">Catalog</NavLink>
+                    <NavLink className='mobile-link' to="/" onClick={closeOnClick}>Home</NavLink>
+                    <NavLink className='mobile-link' to="/about" onClick={closeOnClick}>About</NavLink>
+                    <NavLink className='mobile-link' to="/catalog" onClick={closeOnClick}>Catalog</NavLink>
                 </div>
                 <div className="links-bottom">
                     <NavLink to="/"><i className="bi bi-bag" style={{fontSize: 42}}></i></NavLink>

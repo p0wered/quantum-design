@@ -1,16 +1,16 @@
 import NorthImg from '../assets/north.jpg';
-import React from 'react'
+import React, {useState} from 'react'
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-function SimpleSlider({ slidesNumber }) {
+function SimpleSlider({ slidesAmount, slidesPerScroll }) {
     let settings = {
         dots: false,
         infinite: true,
         speed: 300,
-        slidesToShow: 4,
-        slidesToScroll: 4,
+        slidesToShow: slidesAmount,
+        slidesToScroll: slidesPerScroll,
         adaptiveHeight: true
     };
     return (
@@ -43,14 +43,17 @@ function ProductSection({image, title, desc, category}) {
 }
 
 function SaleSection() {
-    let slidesNumber;
-    (window.width > 1200) ? slidesNumber = 4 : slidesNumber = 3
+    let [currentWidth, setCurrentWidth] = useState(1920)
+
+    window.addEventListener('resize', function (event){
+        setCurrentWidth(window.innerWidth)
+    })
 
     return (
         <div className='sale-section'>
             <h2>BEST SALES</h2>
             <div className='slider-container'>
-                <SimpleSlider slidesNumber={slidesNumber}/>
+                <SimpleSlider slidesAmount={currentWidth < 1200 ? 3 : 4} slidesPerScroll={currentWidth < 1200 ? 1 : 4}/>
             </div>
         </div>
     );
