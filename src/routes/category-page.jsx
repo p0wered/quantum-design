@@ -9,10 +9,8 @@ export function TitleSection({ image, title, desc }) {
         Aos.init();
     }, []);
 
-    let divStyle = {backgroundImage: `url(${image})`}
-
     return (
-        <div className='title-section image-box' style={divStyle}>
+        <div className='title-section image-box' style={{backgroundImage: `url(${image})`}}>
             <h1 data-aos='fade-up' data-aos-duration='1000'>{title}</h1>
             <h4 className='desc' data-aos='fade-up' data-aos-duration='1000'
                 data-aos-delay='100'>{desc}</h4>
@@ -37,6 +35,7 @@ function Filters({products, setCategories}) {
         lastCategory.push(product.category);
     });
 
+    // eslint-disable-next-line no-extend-native
     Array.prototype.unique = function () {
         return Array.from(new Set(this));
     };
