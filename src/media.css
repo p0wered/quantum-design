@@ -26,11 +26,20 @@
     .mobile-menu{
         left: 0;
     }
+    .logo-link{
+        margin-right: 0;
+    }
 }
 
-@media screen and (max-width: 920px) {
+@media screen and (max-width: 992px) {
+    .container{
+        max-width: 720px;
+    }
     h1{
         font-size: 52px;
+    }
+    h2{
+        font-size: 40px;
     }
     h4{
         font-size: 18px;

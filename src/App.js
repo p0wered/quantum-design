@@ -57,7 +57,7 @@ function NavBar() {
                         <NavLink to="/about">About</NavLink>
                         <NavLink to="/catalog">Catalog</NavLink>
                     </div>
-                    <NavLink to="/" style={{marginRight: '6rem'}}>Quantum<span style={{fontWeight: 700}}>Design</span></NavLink>
+                    <NavLink to="/" className='logo-link'>Quantum<span style={{fontWeight: 700}}>Design</span></NavLink>
                     <div className="navbar-links links-right">
                         <NavLink to="/"><i className="bi bi-bag"></i></NavLink>
                         <NavLink to="/"><i className="bi bi-person-circle" style={{fontSize: 26}}></i></NavLink>

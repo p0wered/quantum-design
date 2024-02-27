@@ -1,7 +1,7 @@
 import NorthImg from '../assets/north.jpg';
 import ProductImg from '../assets/products.jpg'
 import React, {useEffect, useState} from 'react';
-import {PRODUCTS} from './products';
+import ProductsData from '../products.json'
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -62,9 +62,38 @@ function SaleSection() {
         <div className='sale-section'>
             <h2 style={{color: 'white'}}>BEST SALES</h2>
             <div className='slider-container'>
-                <SimpleSlider slidesAmount={currentWidth < 1200 ? 3 : 4} slidesPerScroll={currentWidth < 1200 ? 1 : 4} products={PRODUCTS}/>
+                <SimpleSlider slidesAmount={currentWidth < 1200 ? 3 : 4} slidesPerScroll={currentWidth < 1200 ? 1 : 4} products={ProductsData}/>
             </div>
         </div>
+    );
+}
+
+function NewsSection() {
+    return (
+      <div className='news-section'>
+          <div className='container news-container'>
+              <NewsItem large={true}/>
+              <div className='flexbox-row'>
+                  <NewsItem large={false}/>
+                  <NewsItem large={false}/>
+              </div>
+          </div>
+      </div>
+    );
+}
+
+function NewsItem({large}) {
+    let size;
+    if (large) {
+        size = 'news-section-item large-item'
+    } else {
+        size = 'news-section-item'
+    }
+
+    return (
+      <div className={size}>
+          <p>yorny</p>
+      </div>
     );
 }
 
@@ -84,7 +113,7 @@ export default function Home() {
         <div>
             <ProductSection image={NorthImg} title='NORTH' desc='Transform your gaming space' category='CASES'/>
             <SaleSection/>
-            <ProductSection/>
+            <NewsSection/>
         </div>
     );
 }

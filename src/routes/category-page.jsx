@@ -1,4 +1,4 @@
-import {PRODUCTS} from "./products";
+import ProductsData from '../products.json'
 import {useEffect, useState} from "react";
 import titleImg from '../assets/products.jpg'
 import Aos from 'aos'
@@ -107,8 +107,8 @@ export default function CategoryPage() {
         <div>
             <TitleSection image={titleImg} title='PRODUCTS' desc='See all categories'/>
             <div className='filters-flexbox'>
-                <Filters products={PRODUCTS} categories={selectedCategories} setCategories={setSelectedCategories} />
-                <CatalogGrid products={PRODUCTS} filter={selectedCategories} />
+                <Filters products={ProductsData} categories={selectedCategories} setCategories={setSelectedCategories} />
+                <CatalogGrid products={ProductsData} filter={selectedCategories} />
             </div>
         </div>
     );
