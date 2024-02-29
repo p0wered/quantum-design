@@ -80,7 +80,7 @@ nav:hover{
 }
 
 .container{
-  max-width: 1320px;
+  width: 1320px;
   margin: auto;
 }
 
@@ -331,19 +331,29 @@ nav a:hover{
 .news-container{
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 2rem;
+  padding: 30px;
+  text-align: center;
+  gap: 30px;
 }
 
 .news-section-item{
+  width: 100%;
+  background-color: antiquewhite;
   aspect-ratio: 1;
-  height: calc(15rem + 10vw);
-  padding: 1rem;
-  margin: 1rem;
-  background-color: #838383;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 2rem;
+}
+
+.news-flexbox{
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
 }
 
 .large-item{
-  width: calc(100% - 2rem);
+  height: 615px;
+  aspect-ratio: auto;
 }
-

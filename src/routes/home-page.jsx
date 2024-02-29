@@ -1,7 +1,8 @@
 import NorthImg from '../assets/north.jpg';
 import ProductImg from '../assets/products.jpg'
 import React, {useEffect, useState} from 'react';
-import ProductsData from '../products.json'
+import ProductsData from '../products.json';
+import NewsData from '../news.json';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -68,21 +69,26 @@ function SaleSection() {
     );
 }
 
-function NewsSection() {
+function NewsSection({data}) {
     return (
       <div className='news-section'>
           <div className='container news-container'>
-              <NewsItem large={true}/>
-              <div className='flexbox-row'>
-                  <NewsItem large={false}/>
-                  <NewsItem large={false}/>
+              <h1>LATEST NEWS</h1>
+              <NewsItem large={true} title={data[0]["title"]} desc={data[0]["desc"]}/>
+              <div className='news-flexbox'>
+                  <NewsItem large={false} title={data[1]["title"]} desc={data[1]["desc"]}/>
+                  <NewsItem large={false} title={data[2]["title"]} desc={data[0]["desc"]}/>
+              </div>
+              <div className='news-flexbox'>
+                  <p>SHOW MORE</p>
+                  <i className="bi bi-arrow-right"></i>
               </div>
           </div>
       </div>
     );
 }
 
-function NewsItem({large}) {
+function NewsItem({large, title, desc, image}) {
     let size;
     if (large) {
         size = 'news-section-item large-item'
@@ -91,8 +97,9 @@ function NewsItem({large}) {
     }
 
     return (
-      <div className={size}>
-          <p>yorny</p>
+      <div className={size} style={{backgroundImage: `url(${image})`}}>
+          <h4>{title}</h4>
+          <p>{desc}</p>
       </div>
     );
 }
@@ -113,7 +120,7 @@ export default function Home() {
         <div>
             <ProductSection image={NorthImg} title='NORTH' desc='Transform your gaming space' category='CASES'/>
             <SaleSection/>
-            <NewsSection/>
+            <NewsSection data={NewsData}/>
         </div>
     );
 }
