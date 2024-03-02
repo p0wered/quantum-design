@@ -50,11 +50,13 @@ a, a:visited, a:hover, a:active {
 }
 
 ::selection {
-  background: rgba(0, 0, 0, 0.4);
+  background: black;
+  color: white;
 }
 
 ::-moz-selection {
-  background: rgba(0, 0, 0, 0.4);
+  background: black;
+  color: white;
 }
 
 .flexbox-column{
@@ -279,7 +281,7 @@ nav a:hover{
   font-weight: 600;
   color: white;
   background-color: #1B1A1A;
-  width: calc(9rem + 4vw);
+  width: calc(9rem + 5vw);
   padding: calc(1.625rem + 0.325vw) 0;
   border: none;
   transition: 0.3s;
@@ -352,6 +354,9 @@ nav a:hover{
   justify-content: flex-end;
   padding: 2rem;
   transition: .3s;
+  background-size: cover;
+  background-position: left center;
+  color: white;
 }
 
 .news-section-link{
@@ -405,4 +410,28 @@ nav a:hover{
 .show-news:hover{
   color: white;
   background-color: #298bff;
+}
+
+.blog-section{
+  width: 100%;
+  background-color: white;
+}
+
+.blog-flexbox{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10%;
+}
+
+.blog-flexbox input{
+  min-width: 32rem;
+  background-color: #f7f7f7;
+  border: none;
+  padding: 1.625rem;
+  font-size: 18px;
+}
+
+.blog-flexbox input::placeholder{
+  color: rgba(0, 0, 0, 0.39);
 }

@@ -1,5 +1,3 @@
-import NorthImg from '../assets/north.jpg';
-import ProductImg from '../assets/products.jpg'
 import React, {useEffect, useState} from 'react';
 import ProductsData from '../products.json';
 import NewsData from '../news.json';
@@ -10,8 +8,12 @@ import Aos from 'aos'
 import 'aos/dist/aos.css'
 import {NavLink, Route, Routes} from "react-router-dom";
 import NewsPage from "./news-page";
-import data from "bootstrap/js/src/dom/data";
 import CreatorProgramPage from "./news/creator-program";
+import NorthImg from '../assets/north.jpg';
+import ProductImg from '../assets/products.jpg';
+import CreatorImg from '../assets/Streamer4-2160x1440.jpg';
+import RiserImg from '../assets/pciriser.jpg';
+import DotAwardImg from '../assets/Dot_Award_1600x1000px.jpg';
 
 function SimpleSlider({ slidesAmount, slidesPerScroll, products }) {
     let settings = {
@@ -78,10 +80,10 @@ function NewsSection({data}) {
       <div className='news-section'>
           <div className='container news-container'>
               <h1>LATEST NEWS</h1>
-              <NavLink to={data[0]["path"]} className='news-section-link link-large'><NewsItem large={true} title={data[0]["title"]}/></NavLink>
+              <NavLink to={data[0]["path"]} className='news-section-link link-large'><NewsItem large={true} title={data[0]["title"]} image={CreatorImg}/></NavLink>
               <div className='news-flexbox'>
-                  <NavLink to={data[1]["path"]} className='news-section-link'><NewsItem large={false} title={data[1]["title"]}/></NavLink>
-                  <NavLink to={data[2]["path"]} className='news-section-link'><NewsItem large={false} title={data[2]["title"]}/></NavLink>
+                  <NavLink to={data[1]["path"]} className='news-section-link'><NewsItem large={false} title={data[1]["title"]} image={RiserImg}/></NavLink>
+                  <NavLink to={data[2]["path"]} className='news-section-link'><NewsItem large={false} title={data[2]["title"]} image={DotAwardImg}/></NavLink>
               </div>
               <div className='show-news'>
                   <NavLink to='/news'><p>SHOW ALL NEWS</p></NavLink>
@@ -92,16 +94,18 @@ function NewsSection({data}) {
 }
 
 function NewsItem({large, title, image}) {
-    let size;
+    let size, titleWidth;
     if (large) {
-        size = 'news-section-item large-item'
+        size = 'news-section-item large-item';
+        titleWidth = '70%';
     } else {
         size = 'news-section-item'
+        titleWidth = '100%';
     }
 
     return (
       <div className={size} style={{backgroundImage: `url(${image})`}}>
-          <h2>{title}</h2>
+          <h2 style={{width: titleWidth}}>{title}</h2>
       </div>
     );
 }
@@ -117,12 +121,38 @@ function SaleCard({product, image}) {
     );
 }
 
+function BlogSection (){
+    return(
+      <div className='blog-section'>
+          <div className='container' style={{padding: '6rem 2rem'}}>
+              <div className='blog-flexbox'>
+                  <div className='flexbox-center'>
+                      <div style={{width: '40%'}}>
+                          <h3>Sign up to our newsletter</h3>
+                          <p>
+                              Keep abreast of what we’re working on, what’s hot and what might be right around the
+                              corner.
+                              By signing up to the Fractal Design newsletter, you automatically accept our terms
+                          </p>
+                      </div>
+                      <form action="#" className='flexbox-column' style={{gap: '1.325rem', alignItems: 'end'}}>
+                          <input type="text" placeholder='Email'/>
+                          <input type="text" placeholder='Name'/>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+    );
+}
+
 export default function Home() {
     return (
         <div>
             <ProductSection image={NorthImg} title='NORTH' desc='Transform your gaming space' category='CASES'/>
             <SaleSection/>
             <NewsSection data={NewsData}/>
+            <BlogSection/>
             <Routes>
                 <Route path="/news" element={<NewsPage/>}/>
                 <Route path={NewsData[0]["path"]} element={<CreatorProgramPage/>}></Route>
