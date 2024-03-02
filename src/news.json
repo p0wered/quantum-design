@@ -1,25 +1,30 @@
 [
   {
-    "title": "Check out our new partner program",
+    "path": "/news/creator-program",
+    "title": "Introducing the Quantum Creator Program",
     "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A autem dicta dolorem earum error impedit in incidunt iusto minus molestias neque nesciunt quam quas reprehenderit sequi similique, sint tenetur ut velit vero! Accusamus amet consequuntur cumque deleniti deserunt dignissimos distinctio dolor doloribus harum illum ipsam ipsum magni, maxime, molestias nemo nesciunt nisi placeat vero? Alias asperiores enim fugiat incidunt iusto quasi repellat repellendus unde? Accusamus aspernatur beatae commodi consequatur deleniti deserunt dicta dolorum ducimus fuga impedit in magnam magni minima nulla, quas quibusdam recusandae",
     "image": "../assets/north.jpg"
   },
   {
+    "path": "/news/partner-program-2",
     "title": "1Check out our new partner program",
     "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A autem dicta dolorem earum error impedit in incidunt iusto minus molestias neque nesciunt quam quas reprehenderit sequi similique, sint tenetur ut velit vero! Accusamus amet consequuntur cumque deleniti deserunt dignissimos distinctio dolor doloribus harum illum ipsam ipsum magni, maxime, molestias nemo nesciunt nisi placeat vero? Alias asperiores enim fugiat incidunt iusto quasi repellat repellendus unde? Accusamus aspernatur beatae commodi consequatur deleniti deserunt dicta dolorum ducimus fuga impedit in magnam magni minima nulla, quas quibusdam recusandae",
     "image": "../assets/north.jpg"
   },
   {
+    "path": "/news/partner-program-3",
     "title": "2Check out our new partner program",
     "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A autem dicta dolorem earum error impedit in incidunt iusto minus molestias neque nesciunt quam quas reprehenderit sequi similique, sint tenetur ut velit vero! Accusamus amet consequuntur cumque deleniti deserunt dignissimos distinctio dolor doloribus harum illum ipsam ipsum magni, maxime, molestias nemo nesciunt nisi placeat vero? Alias asperiores enim fugiat incidunt iusto quasi repellat repellendus unde? Accusamus aspernatur beatae commodi consequatur deleniti deserunt dicta dolorum ducimus fuga impedit in magnam magni minima nulla, quas quibusdam recusandae",
     "image": "../assets/north.jpg"
   },
   {
+    "path": "/news/partner-program",
     "title": "Check out our new partner program",
     "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A autem dicta dolorem earum error impedit in incidunt iusto minus molestias neque nesciunt quam quas reprehenderit sequi similique, sint tenetur ut velit vero! Accusamus amet consequuntur cumque deleniti deserunt dignissimos distinctio dolor doloribus harum illum ipsam ipsum magni, maxime, molestias nemo nesciunt nisi placeat vero? Alias asperiores enim fugiat incidunt iusto quasi repellat repellendus unde? Accusamus aspernatur beatae commodi consequatur deleniti deserunt dicta dolorum ducimus fuga impedit in magnam magni minima nulla, quas quibusdam recusandae",
     "image": "../assets/north.jpg"
   },
   {
+    "path": "/news/partner-program",
     "title": "Check out our new partner program",
     "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A autem dicta dolorem earum error impedit in incidunt iusto minus molestias neque nesciunt quam quas reprehenderit sequi similique, sint tenetur ut velit vero! Accusamus amet consequuntur cumque deleniti deserunt dignissimos distinctio dolor doloribus harum illum ipsam ipsum magni, maxime, molestias nemo nesciunt nisi placeat vero? Alias asperiores enim fugiat incidunt iusto quasi repellat repellendus unde? Accusamus aspernatur beatae commodi consequatur deleniti deserunt dicta dolorum ducimus fuga impedit in magnam magni minima nulla, quas quibusdam recusandae",
     "image": "../assets/north.jpg"
