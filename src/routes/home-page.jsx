@@ -6,9 +6,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Aos from 'aos'
 import 'aos/dist/aos.css'
-import {NavLink, Route, Routes} from "react-router-dom";
-import NewsPage from "./news-page";
-import CreatorProgramPage from "./news/creator-program";
+import {NavLink} from "react-router-dom";
 import NorthImg from '../assets/north.jpg';
 import ProductImg from '../assets/products.jpg';
 import CreatorImg from '../assets/Streamer4-2160x1440.jpg';
@@ -97,7 +95,7 @@ function NewsSection({data}) {
     );
 }
 
-function NewsItem({large, title, image}) {
+export function NewsItem({large, title, image}) {
     let size, titleWidth;
     if (large) {
         size = 'news-section-item large-item';
@@ -173,10 +171,6 @@ export default function Home() {
             <NewsSection data={NewsData}/>
             <BlogSection/>
             <Footer/>
-            <Routes>
-                <Route path="/news" element={<NewsPage/>}/>
-                <Route path={NewsData[0]["path"]} element={<CreatorProgramPage/>}></Route>
-            </Routes>
         </div>
     );
 }
