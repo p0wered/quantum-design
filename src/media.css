@@ -34,6 +34,7 @@
 @media screen and (max-width: 992px) {
     .container{
         width: 720px;
+        padding: 1rem;
     }
     h1{
         font-size: 42px;
@@ -55,6 +56,21 @@
     }
     .large-item{
         height: auto;
+    }
+    .news-section-item{
+        padding: 1rem;
+    }
+    .blog-section input{
+        min-width: auto;
+        width: 100%;
+    }
+    .blog-flexbox{
+        align-items: normal;
+        gap: 1rem;
+        flex-direction: column;
+    }
+    .sub-button{
+        width: 100%;
     }
 }
 

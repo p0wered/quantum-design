@@ -26,10 +26,14 @@ function SimpleSlider({ slidesAmount, slidesPerScroll, products }) {
     };
 
     let slides = [];
+
+    products.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
     products.forEach((product) => {
-        slides.push(
-            <SaleCard product={product} image={ProductImg}/>
-        );
+        if (product.discount !== 0){
+            slides.push(
+                <SaleCard product={product} image={ProductImg}/>
+            );
+        }
     });
 
     return (
@@ -111,11 +115,17 @@ function NewsItem({large, title, image}) {
 }
 
 function SaleCard({product, image}) {
+    let finalPrice = product.price * (1 - product.discount / 100);
+    finalPrice = finalPrice.toFixed(2);
+
     return (
         <div className='sale-card' style={{backgroundImage: `url(${image})`}}>
             <div className='sale-card-info'>
                 <p>{product.name}</p>
-                <p>{product.price}</p>
+                <div className='flexbox-center flexbox-row' style={{gap: 8}}>
+                    <p className='discounted'>${product.price}</p>
+                    <p>${finalPrice}</p>
+                </div>
             </div>
         </div>
     );
@@ -124,23 +134,32 @@ function SaleCard({product, image}) {
 function BlogSection (){
     return(
       <div className='blog-section'>
-          <div className='container' style={{padding: '6rem 2rem'}}>
+          <div className='container blog-container' style={{padding: '6rem 2rem'}}>
               <div className='blog-flexbox'>
-                  <div className='flexbox-center'>
-                      <div style={{width: '40%'}}>
-                          <h3>Sign up to our newsletter</h3>
-                          <p>
-                              Keep abreast of what we’re working on, what’s hot and what might be right around the
-                              corner.
-                              By signing up to the Fractal Design newsletter, you automatically accept our terms
-                          </p>
-                      </div>
-                      <form action="#" className='flexbox-column' style={{gap: '1.325rem', alignItems: 'end'}}>
-                          <input type="text" placeholder='Email'/>
-                          <input type="text" placeholder='Name'/>
-                      </form>
+                  <div>
+                      <h3 style={{marginBottom: '1rem'}}>Sign up to our newsletter</h3>
+                      <p>
+                          Keep abreast of what we’re working on, what’s hot and what might be right around the
+                          corner.
+                          By signing up to the Fractal Design newsletter, you automatically accept our terms
+                      </p>
                   </div>
+                  <form action="#" className='flexbox-column' style={{gap: '1.325rem', alignItems: 'end'}}>
+                      <input type="text" placeholder='Email'/>
+                      <input type="text" placeholder='Name'/>
+                  </form>
               </div>
+              <button className='button-product sub-button'>SUBSCRIBE</button>
+          </div>
+      </div>
+    );
+}
+
+function Footer(){
+    return(
+      <div className='footer'>
+          <div className='container'>
+              <h4>test</h4>
           </div>
       </div>
     );
@@ -153,6 +172,7 @@ export default function Home() {
             <SaleSection/>
             <NewsSection data={NewsData}/>
             <BlogSection/>
+            <Footer/>
             <Routes>
                 <Route path="/news" element={<NewsPage/>}/>
                 <Route path={NewsData[0]["path"]} element={<CreatorProgramPage/>}></Route>

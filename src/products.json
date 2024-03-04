@@ -3,60 +3,70 @@
     "category": "Cases",
     "name": "Terra",
     "price": 69.99,
-    "stock": 100
+    "stock": 100,
+    "discount": 10
   },
   {
     "category": "Cases",
     "name": "North",
     "price": 79.99,
-    "stock": 70
+    "stock": 70,
+    "discount": 10
   },
   {
     "category": "Cases",
     "name": "Ridge",
     "price": 59.99,
-    "stock": 60
+    "stock": 60,
+    "discount": 0
   },
   {
     "category": "Cases",
     "name": "Pop",
     "price": 39.99,
-    "stock": 150
+    "stock": 150,
+    "discount": 30
   },
   {
     "category": "Cases",
     "name": "Torrent",
     "price": 29.99,
-    "stock": 200
+    "stock": 200,
+    "discount": 0
   },
   {
     "category": "Фрукты",
     "name": "Мандарин",
     "price": 49.99,
-    "stock": 25
+    "stock": 25,
+    "discount": 0
   },
   {
     "category": "Ягоды",
     "name": "Вишня",
     "price": 19.99,
-    "stock": 140
+    "stock": 140,
+    "discount": 0
   },
   {
     "category": "Ягоды",
     "name": "Голубика",
     "price": 99.99,
-    "stock": 0
+    "stock": 0,
+    "discount": 40
   },
   {
     "category": "Овощи",
     "name": "Капуста",
     "price": 39.99,
-    "stock": 50
+    "stock": 50,
+    "discount": 0
   },
   {
     "category": "Фрукты",
     "name": "Хурма",
     "price": 49.99,
-    "stock": 40
+    "stock": 40,
+    "discount": 20
   }
 ]
