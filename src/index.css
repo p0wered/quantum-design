@@ -49,6 +49,10 @@ a, a:visited, a:hover, a:active {
   text-decoration: none;
 }
 
+.navbar-links .active{
+  font-weight: 700;
+}
+
 ::selection {
   background: black;
   color: white;
@@ -454,4 +458,8 @@ nav a:hover{
 .footer{
   color: white;
   background-color: #1B1A1A;
+}
+
+.new-nav{
+  display: none;
 }

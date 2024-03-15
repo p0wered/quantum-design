@@ -79,19 +79,19 @@ function SaleSection() {
 
 function NewsSection({data}) {
     return (
-      <div className='news-section'>
-          <div className='container news-container'>
-              <h1>LATEST NEWS</h1>
-              <NavLink to={data[0]["path"]} className='news-section-link link-large'><NewsItem large={true} title={data[0]["title"]} image={CreatorImg}/></NavLink>
-              <div className='news-flexbox'>
-                  <NavLink to={data[1]["path"]} className='news-section-link'><NewsItem large={false} title={data[1]["title"]} image={RiserImg}/></NavLink>
-                  <NavLink to={data[2]["path"]} className='news-section-link'><NewsItem large={false} title={data[2]["title"]} image={DotAwardImg}/></NavLink>
-              </div>
-              <div className='show-news'>
-                  <NavLink to='/news'><p>SHOW ALL NEWS</p></NavLink>
-              </div>
+        <div className='news-section'>
+            <div className='container news-container'>
+                <h1>LATEST NEWS</h1>
+                <NavLink to={data[0]["path"]} className='news-section-link link-large'><NewsItem large={true} title={data[0]["title"]} image={CreatorImg}/></NavLink>
+                <div className='news-flexbox'>
+                    <NavLink to={data[1]["path"]} className='news-section-link'><NewsItem large={false} title={data[1]["title"]} image={RiserImg}/></NavLink>
+                    <NavLink to={data[2]["path"]} className='news-section-link'><NewsItem large={false} title={data[2]["title"]} image={DotAwardImg}/></NavLink>
+                </div>
+                <div className='show-news'>
+                    <NavLink to='/news'><p>SHOW ALL NEWS</p></NavLink>
+                </div>
+            </div>
         </div>
-      </div>
     );
 }
 
@@ -106,9 +106,9 @@ export function NewsItem({large, title, image}) {
     }
 
     return (
-      <div className={size} style={{backgroundImage: `url(${image})`}}>
-          <h2 style={{width: titleWidth}}>{title}</h2>
-      </div>
+        <div className={size} style={{backgroundImage: `url(${image})`}}>
+            <h2 style={{width: titleWidth}}>{title}</h2>
+        </div>
     );
 }
 
@@ -131,35 +131,35 @@ function SaleCard({product, image}) {
 
 function BlogSection (){
     return(
-      <div className='blog-section'>
-          <div className='container blog-container' style={{padding: '6rem 2rem'}}>
-              <div className='blog-flexbox'>
-                  <div>
-                      <h3 style={{marginBottom: '1rem'}}>Sign up to our newsletter</h3>
-                      <p>
-                          Keep abreast of what we’re working on, what’s hot and what might be right around the
-                          corner.
-                          By signing up to the Fractal Design newsletter, you automatically accept our terms
-                      </p>
-                  </div>
-                  <form action="#" className='flexbox-column' style={{gap: '1.325rem', alignItems: 'end'}}>
-                      <input type="text" placeholder='Email'/>
-                      <input type="text" placeholder='Name'/>
-                  </form>
-              </div>
-              <button className='button-product sub-button'>SUBSCRIBE</button>
-          </div>
-      </div>
+        <div className='blog-section'>
+            <div className='container blog-container' style={{padding: '6rem 2rem'}}>
+                <div className='blog-flexbox'>
+                    <div>
+                        <h3 style={{marginBottom: '1rem'}}>Sign up to our newsletter</h3>
+                        <p>
+                            Keep abreast of what we’re working on, what’s hot and what might be right around the
+                            corner.
+                            By signing up to the Fractal Design newsletter, you automatically accept our terms
+                        </p>
+                    </div>
+                    <form action="#" className='flexbox-column' style={{gap: '1.325rem', alignItems: 'end'}}>
+                        <input type="text" placeholder='Email'/>
+                        <input type="text" placeholder='Name'/>
+                    </form>
+                </div>
+                <button className='button-product sub-button'>SUBSCRIBE</button>
+            </div>
+        </div>
     );
 }
 
 function Footer(){
     return(
-      <div className='footer'>
-          <div className='container'>
-              <h4>test</h4>
-          </div>
-      </div>
+        <div className='footer'>
+            <div className='container'>
+                <h4>test</h4>
+            </div>
+        </div>
     );
 }
 
