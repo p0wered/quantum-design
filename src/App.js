@@ -57,8 +57,8 @@ function NavBar() {
                 <div className='container navbar-container'>
                     <div className="navbar-links">
                         <NavLink to="/">Home</NavLink>
-                        <NavLink to="/about">About</NavLink>
                         <NavLink to="/catalog">Catalog</NavLink>
+                        <NavLink to="/about">About</NavLink>
                     </div>
                     <NavLink to="/" className='logo-link'>Quantum<span style={{fontWeight: 700}}>Design</span></NavLink>
                     <div className="navbar-links links-right">
@@ -72,8 +72,8 @@ function NavBar() {
             <div className='mobile-menu' style={{left: menuDisplay}}>
                 <div className="mobile-navbar-links">
                     <NavLink className='mobile-link' to="/" onClick={closeOnClick}>Home</NavLink>
-                    <NavLink className='mobile-link' to="/about" onClick={closeOnClick}>About</NavLink>
                     <NavLink className='mobile-link' to="/catalog" onClick={closeOnClick}>Catalog</NavLink>
+                    <NavLink className='mobile-link' to="/about" onClick={closeOnClick}>About</NavLink>
                 </div>
                 <div className="links-bottom">
                     <NavLink to="/"><i className="bi bi-bag" style={{fontSize: 42}}></i></NavLink>
