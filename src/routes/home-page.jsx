@@ -7,6 +7,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Aos from 'aos'
 import 'aos/dist/aos.css'
 import {NavLink} from "react-router-dom";
+import NorthVideo from '../assets/North-Xl-PC-Case-Webloop.mp4'
 import NorthImg from '../assets/north.jpg';
 import ProductImg from '../assets/products.jpg';
 import CreatorImg from '../assets/Streamer4-2160x1440.jpg';
@@ -47,7 +48,8 @@ function ProductSection({image, title, desc, category}) {
     }, []);
 
     return (
-        <div className='product-section image-box' style={{backgroundImage: `url(${image})`}}>
+        <div className='product-section'>
+            <video className='product-video' src={NorthVideo} loop autoPlay></video>
             <div className='flexbox-column' data-aos='fade-in' data-aos-duration='800'>
                 <h1>{title}</h1>
                 <h4 style={{fontWeight: 400, letterSpacing: 3}}>{desc}</h4>

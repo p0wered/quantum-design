@@ -237,6 +237,7 @@ nav a:hover{
 }
 
 .product-section{
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -246,6 +247,15 @@ nav a:hover{
   height: 100vh;
   color: white;
   gap: 10px;
+}
+
+.product-section h4{
+  text-shadow: 0 0 15px black;
+}
+
+.product-video{
+  height: fit-content;
+  position: absolute;
 }
 
 .image-box{
@@ -291,7 +301,6 @@ nav a:hover{
   padding: calc(1.625rem + 0.325vw) 0;
   border: none;
   transition: 0.3s;
-  box-shadow: #ffffff3d 0 0 50px;
 }
 
 .button-product:hover{
@@ -351,7 +360,7 @@ nav a:hover{
 .news-container{
   display: flex;
   flex-direction: column;
-  padding: 4rem 2rem;
+  padding: 4rem 2rem 2rem 2rem;
   text-align: center;
   gap: 30px;
 }
