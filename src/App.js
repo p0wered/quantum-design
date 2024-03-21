@@ -7,6 +7,7 @@ import {Squash} from "hamburger-react";
 import NewsPage from "./routes/news-page";
 import NewsData from "./news.json";
 import CreatorProgramPage from "./routes/creator-program";
+import CatalogPage from "./routes/catalog-page";
 
 function NavBar() {
 
@@ -92,7 +93,7 @@ export default function App() {
             <Routes>
                 <Route path="/" element={<Home/>}/>
                 <Route path="/about" element={<AboutPage/>}/>
-                <Route path="/catalog" element={<CategoryPage/>}></Route>
+                <Route path="/catalog" element={<CatalogPage/>}></Route>
                 <Route path="/news" element={<NewsPage/>}/>
                 <Route path={NewsData[0]["path"]} element={<CreatorProgramPage/>}/>
             </Routes>

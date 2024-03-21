@@ -1,8 +1,7 @@
 import {NavLink} from "react-router-dom";
 import {NewsItem} from "./home-page";
-import {TitleSection} from "./category-page";
+import {TitleSection} from "./catalog-page";
 import TitleImg from "../assets/Newspost.jpg"
-import DotAwardImg from "../assets/Dot_Award_1600x1000px.jpg";
 import React from "react";
 import NewsData from '../news.json';
 
@@ -13,8 +12,8 @@ function AllNews({data}) {
         newsList.push(
             <div className='flexbox-column' style={{gap: 30}}>
                 <div className='news-flexbox'>
-                    <NavLink to={data[i]["path"]} className='news-section-link'><NewsItem large={false} title={data[i]["title"]}/></NavLink>
-                    <NavLink to={data[i + 1]["path"]} className='news-section-link'><NewsItem large={false} title={data[i + 1]["title"]} image={DotAwardImg}/></NavLink>
+                    <NavLink to={data[i]["path"]} className='news-section-link'><NewsItem large={false} title={data[i]["title"]} image={data[i]["image"]}/></NavLink>
+                    <NavLink to={data[i + 1]["path"]} className='news-section-link'><NewsItem large={false} title={data[i + 1]["title"]} image={data[i + 1]["image"]}/></NavLink>
                 </div>
             </div>
         )

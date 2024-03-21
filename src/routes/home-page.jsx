@@ -52,7 +52,7 @@ function ProductSection({image, title, desc, category}) {
             <video className='product-video' src={NorthVideo} loop autoPlay></video>
             <div className='flexbox-column' data-aos='fade-in' data-aos-duration='800'>
                 <h1>{title}</h1>
-                <h4 style={{fontWeight: 400, letterSpacing: 3}}>{desc}</h4>
+                <h4 style={{fontWeight:     400, letterSpacing: 3}}>{desc}</h4>
                 <div className='button-list'>
                     <button className='button-product'>BUY</button>
                     <button className='button-product'>SEE ALL {category}</button>

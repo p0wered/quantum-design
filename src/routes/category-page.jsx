@@ -1,22 +1,7 @@
 import ProductsData from '../products.json'
-import {useEffect, useState} from "react";
 import titleImg from '../assets/products.jpg'
-import Aos from 'aos'
-import 'aos/dist/aos.css'
-
-export function TitleSection({ image, title, desc }) {
-    useEffect(() => {
-        Aos.init();
-    }, []);
-
-    return (
-        <div className='title-section image-box' style={{backgroundImage: `url(${image})`}}>
-            <h1 data-aos='fade-up' data-aos-duration='1000'>{title}</h1>
-            <h4 className='desc' data-aos='fade-up' data-aos-duration='1000'
-                data-aos-delay='100'>{desc}</h4>
-        </div>
-    );
-}
+import {TitleSection} from "./catalog-page";
+import {useState} from "react";
 
 function Filters({products, setCategories}) {
     const rows = [];
@@ -105,7 +90,6 @@ export default function CategoryPage() {
 
     return (
         <div>
-            <TitleSection image={titleImg} title='PRODUCTS' desc='See all categories'/>
             <div className='filters-flexbox'>
                 <Filters products={ProductsData} categories={selectedCategories} setCategories={setSelectedCategories} />
                 <CatalogGrid products={ProductsData} filter={selectedCategories} />
