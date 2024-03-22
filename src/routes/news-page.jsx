@@ -34,7 +34,7 @@ function AllNews({data}) {
                     <div className='flexbox-column' style={{gap: 30}}>
                         {data.map((item) => {
                             return(
-                                <NavLink to={item.path} className='news-section-link link-large'><NewsItem large={false} title={item.title} image={item.img}/></NavLink>
+                                <NavLink to={item.path} className='news-section-link link-large'><NewsItem large={true} title={item.title} image={item.img}/></NavLink>
                             )
                         })}
                     </div>
