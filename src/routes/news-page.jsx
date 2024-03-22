@@ -31,10 +31,11 @@ function AllNews({data}) {
             <TitleSection image={TitleImg} title='NEWS' desc='See our latest news'/>
             <div className='news-section'>
                 <div className='container news-container'>
-                    <div className='flexbox-column' style={{gap: 30}}>
-                        {data.map((item) => {
+                    <NavLink to={NewsData[0].path} className='news-section-link link-large'><NewsItem large={true} title={NewsData[0].title} image={NewsData[0].img}/></NavLink>
+                    <div className='news-grid' style={{gap: 30}}>
+                        {data.slice(1, data.length).map((item) => {
                             return(
-                                <NavLink to={item.path} className='news-section-link link-large'><NewsItem large={true} title={item.title} image={item.img}/></NavLink>
+                                <NavLink to={item.path} className='news-section-link link-large'><NewsItem large={false} title={item.title} image={item.img}/></NavLink>
                             )
                         })}
                     </div>

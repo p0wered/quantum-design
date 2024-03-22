@@ -265,12 +265,6 @@ nav a:hover{
   background-size: cover;
 }
 
-.image-darker{
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.2);
-}
-
 .title-section{
   display: flex;
   align-items: center;
@@ -278,6 +272,8 @@ nav a:hover{
   flex-direction: column;
   color: #FFFFFF;
   height: 75vh;
+  text-align: center;
+  padding: 2rem;
 }
 
 .desc{
@@ -340,6 +336,10 @@ nav a:hover{
   font-size: 14px;
   color: rgb(128, 128, 128);
   text-decoration: line-through;
+}
+
+.text-gray{
+  color: rgb(128, 128, 128);
 }
 
 .slick-slide > div {
@@ -469,6 +469,12 @@ nav a:hover{
   background-color: #1B1A1A;
 }
 
-.new-nav{
-  display: none;
+.news-grid{
+  display: grid;
+  grid-auto-rows: minmax(100px, auto);
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.article-flexbox{
+  width: 75%;
 }

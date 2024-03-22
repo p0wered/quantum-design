@@ -5,8 +5,8 @@ import React, {useEffect, useState} from "react";
 import {Squash} from "hamburger-react";
 import NewsPage from "./routes/news-page";
 import {NewsData} from "./news.js";
-import CreatorProgramPage from "./routes/creator-program";
 import CatalogPage from "./routes/catalog-page";
+import {CreatorProgramPage, RiserPage} from "./routes/article-page";
 
 function NavBar() {
 
@@ -94,7 +94,8 @@ export default function App() {
                 <Route path="/about" element={<AboutPage/>}/>
                 <Route path="/catalog" element={<CatalogPage/>}></Route>
                 <Route path="/news" element={<NewsPage/>}/>
-                <Route path={NewsData[0]["path"]} element={<CreatorProgramPage/>}/>
+                <Route path={NewsData[0].path} element={<CreatorProgramPage/>}/>
+                <Route path={NewsData[1].path} element={<RiserPage/>}/>
             </Routes>
         </BrowserRouter>
     );
