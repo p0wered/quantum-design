@@ -2,10 +2,9 @@ import {BrowserRouter, NavLink, Route, Routes} from "react-router-dom";
 import Home from "./routes/home-page";
 import AboutPage from "./routes/about-page";
 import React, {useEffect, useState} from "react";
-import CategoryPage from "./routes/category-page";
 import {Squash} from "hamburger-react";
 import NewsPage from "./routes/news-page";
-import NewsData from "./news.json";
+import {NewsData} from "./news.js";
 import CreatorProgramPage from "./routes/creator-program";
 import CatalogPage from "./routes/catalog-page";
 

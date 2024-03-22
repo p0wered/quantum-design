@@ -1,23 +1,30 @@
 import {NavLink} from "react-router-dom";
 import {NewsItem} from "./home-page";
 import {TitleSection} from "./catalog-page";
-import TitleImg from "../assets/Newspost.jpg"
+import TitleImg from "../assets/news-img.jpg"
 import React from "react";
-import NewsData from '../news.json';
+import {NewsData} from '../news.js';
 
 function AllNews({data}) {
-    let newsList = [];
-    for (let i = 1; i < data.length - 1; i += 2) {
-        console.log(i);
-        newsList.push(
-            <div className='flexbox-column' style={{gap: 30}}>
-                <div className='news-flexbox'>
-                    <NavLink to={data[i]["path"]} className='news-section-link'><NewsItem large={false} title={data[i]["title"]} image={data[i]["image"]}/></NavLink>
-                    <NavLink to={data[i + 1]["path"]} className='news-section-link'><NewsItem large={false} title={data[i + 1]["title"]} image={data[i + 1]["image"]}/></NavLink>
-                </div>
-            </div>
-        )
-    }
+    // let newsList = [];
+    // newsList.push(
+    //     data.map((item) => {
+    //         return(
+    //             <div className='flexbox-column' style={{gap: 30}}>
+    //                 <div className='news-flexbox'>
+    //                     <NavLink to={item.path} className='news-section-link'><NewsItem large={false} title={item.title} image={item.img}/></NavLink>
+    //                     <NavLink to={data[i + 1]["path"]} className='news-section-link'><NewsItem large={false} title={data[i + 1]["title"]} image={data[i + 1]["image"]}/></NavLink>
+    //                 </div>
+    //             </div>
+    //         )
+    //     })
+    //     <div className='flexbox-column' style={{gap: 30}}>
+    //         <div className='news-flexbox'>
+    //             <NavLink to={data[i]["path"]} className='news-section-link'><NewsItem large={false} title={data[i]["title"]} image={data[i]["image"]}/></NavLink>
+    //             <NavLink to={data[i + 1]["path"]} className='news-section-link'><NewsItem large={false} title={data[i + 1]["title"]} image={data[i + 1]["image"]}/></NavLink>
+    //         </div>
+    //     </div>
+    // )
 
     return (
         <div>
@@ -25,8 +32,11 @@ function AllNews({data}) {
             <div className='news-section'>
                 <div className='container news-container'>
                     <div className='flexbox-column' style={{gap: 30}}>
-                        <NavLink to={data[0]["path"]} className='news-section-link link-large'><NewsItem large={true} title={data[0]["title"]} image={require('../assets/Streamer4-2160x1440.jpg')}/></NavLink>
-                        {newsList}
+                        {data.map((item) => {
+                            return(
+                                <NavLink to={item.path} className='news-section-link link-large'><NewsItem large={false} title={item.title} image={item.img}/></NavLink>
+                            )
+                        })}
                     </div>
                 </div>
             </div>

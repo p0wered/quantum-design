@@ -1,18 +1,17 @@
 import React, {useEffect, useState} from 'react';
 import ProductsData from '../products.json';
-import NewsData from '../news.json';
+import {NewsData} from '../news.js';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Aos from 'aos'
 import 'aos/dist/aos.css'
 import {NavLink} from "react-router-dom";
-import NorthVideo from '../assets/North-Xl-PC-Case-Webloop.mp4'
-import NorthImg from '../assets/north.jpg';
+import NorthVideo from '../assets/north-case.mp4'
 import ProductImg from '../assets/products.jpg';
-import CreatorImg from '../assets/Streamer4-2160x1440.jpg';
-import RiserImg from '../assets/pciriser.jpg';
-import DotAwardImg from '../assets/Dot_Award_1600x1000px.jpg';
+import CreatorImg from '../assets/streamer-img.jpg';
+import RiserImg from '../assets/card-riser.jpg';
+import DotAwardImg from '../assets/dot-award.jpg';
 
 function SimpleSlider({ slidesAmount, slidesPerScroll, products }) {
     let settings = {
@@ -42,14 +41,14 @@ function SimpleSlider({ slidesAmount, slidesPerScroll, products }) {
     );
 }
 
-function ProductSection({image, title, desc, category}) {
+function ProductSection({video, title, desc, category}) {
     useEffect(() => {
         Aos.init();
     }, []);
 
     return (
         <div className='product-section'>
-            <video className='product-video' src={NorthVideo} loop autoPlay></video>
+            <video className='product-video' src={video} loop autoPlay></video>
             <div className='flexbox-column' data-aos='fade-in' data-aos-duration='800'>
                 <h1>{title}</h1>
                 <h4 style={{fontWeight:     400, letterSpacing: 3}}>{desc}</h4>
@@ -167,7 +166,7 @@ function Footer(){
 export default function Home() {
     return (
         <div>
-            <ProductSection image={NorthImg} title='NORTH' desc='Transform your gaming space' category='CASES'/>
+            <ProductSection video={NorthVideo} title='NORTH' desc='Transform your gaming space' category='CASES'/>
             <SaleSection/>
             <NewsSection data={NewsData}/>
             <BlogSection/>
