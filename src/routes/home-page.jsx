@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import ProductsData from '../products.json';
+import {ProductsData} from '../products.js';
 import {NewsData} from '../news.js';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";

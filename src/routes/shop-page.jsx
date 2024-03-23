@@ -1,4 +1,4 @@
-import ProductsData from '../products.json'
+import {ProductsData} from '../products.js'
 import {useState} from "react";
 
 function Filters({products, setCategories}) {
@@ -55,7 +55,8 @@ function CatalogItem({product}) {
 
     return (
         <div className={stocked}>
-            <p>{product.name}</p>
+            <img src={product.image} alt={product.name} style={{width: '100%'}}/>
+            <p style={{fontWeight: 600, fontSize: '17px'}}>{product.name}</p>
             <p>{product.price}$</p>
         </div>
     )
@@ -87,10 +88,11 @@ export default function ShopPage() {
     const [selectedCategories, setSelectedCategories] = useState([]);
 
     return (
-        <div>
+        <div className='container'>
+            <div style={{height: 91, width: '100%'}}></div>
             <div className='filters-flexbox'>
-                <Filters products={ProductsData} categories={selectedCategories} setCategories={setSelectedCategories} />
-                <CatalogGrid products={ProductsData} filter={selectedCategories} />
+                <Filters products={ProductsData} categories={selectedCategories} setCategories={setSelectedCategories}/>
+                <CatalogGrid products={ProductsData} filter={selectedCategories}/>
             </div>
         </div>
     );

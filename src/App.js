@@ -8,6 +8,7 @@ import {NewsData} from "./news.js";
 import CatalogPage from "./routes/catalog-page";
 import {CreatorProgramPage, RiserPage} from "./routes/article-page";
 import Logo from './qd-white.png'
+import ShopPage from "./routes/shop-page";
 
 function NavBar() {
 
@@ -108,6 +109,7 @@ export default function App() {
                 <Route path="/about" element={<AboutPage/>}/>
                 <Route path="/catalog" element={<CatalogPage/>}></Route>
                 <Route path="/news" element={<NewsPage/>}/>
+                <Route path="/shop" element={<ShopPage/>}/>
                 <Route path={NewsData[0].path} element={<CreatorProgramPage/>}/>
                 <Route path={NewsData[1].path} element={<RiserPage/>}/>
             </Routes>
