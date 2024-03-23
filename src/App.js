@@ -7,6 +7,7 @@ import NewsPage from "./routes/news-page";
 import {NewsData} from "./news.js";
 import CatalogPage from "./routes/catalog-page";
 import {CreatorProgramPage, RiserPage} from "./routes/article-page";
+import Logo from './qd-white.png'
 
 function NavBar() {
 
@@ -89,7 +90,10 @@ export function Footer(){
     return(
         <div className='footer'>
             <div className='container'>
-                <h4>test</h4>
+                <div className='footer-flexbox'>
+                    <img src={Logo} alt="Logo" style={{width: 75, height: 50}}/>
+                    <button className='button-footer'>FIND RETAILERS</button>
+                </div>
             </div>
         </div>
     );

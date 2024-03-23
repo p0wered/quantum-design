@@ -1,6 +1,4 @@
 import ProductsData from '../products.json'
-import titleImg from '../assets/products.jpg'
-import {TitleSection} from "./catalog-page";
 import {useState} from "react";
 
 function Filters({products, setCategories}) {
@@ -85,7 +83,7 @@ function CatalogGrid({products, filter}) {
     );
 }
 
-export default function CategoryPage() {
+export default function ShopPage() {
     const [selectedCategories, setSelectedCategories] = useState([]);
 
     return (

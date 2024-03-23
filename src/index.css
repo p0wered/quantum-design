@@ -474,6 +474,12 @@ nav a:hover{
   background-color: #1B1A1A;
 }
 
+.footer-flexbox{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .news-grid{
   display: grid;
   grid-auto-rows: minmax(100px, auto);
@@ -490,8 +496,14 @@ nav a:hover{
   align-items: center;
   width: 100%;
   aspect-ratio: 1;
-  padding: 1rem;
-  background-color: coral;
+  padding: 2rem;
+  background-color: white;
+  gap: 15px;
+  transition: .3s;
+}
+
+.category-item:hover{
+  transform: scale(102%);
 }
 
 .category-grid{
@@ -500,4 +512,30 @@ nav a:hover{
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
   padding: 2rem 0;
+}
+
+.category-image{
+  width: 100%;
+  aspect-ratio: 1;
+  transition: .3s;
+}
+
+.category-image:hover{
+  transform: scale(105%);
+}
+
+.button-footer{
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1B1A1A;
+  background-color: #F7F7F7;
+  width: calc(9rem + 5vw);
+  padding: 2rem 3rem;
+  border: none;
+  transition: 0.3s;
+}
+
+.button-product:hover{
+  background-color: #312d2d;
 }

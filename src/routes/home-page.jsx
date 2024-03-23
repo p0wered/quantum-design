@@ -80,23 +80,6 @@ function SaleSection() {
     );
 }
 
-function NewsSection({data}) {
-    return (
-        <div className='news-section'>
-            <div className='container news-container'>
-                <NavLink to={data[0]["path"]} className='news-section-link link-large'><NewsItem large={true} title={data[0]["title"]} image={CreatorImg}/></NavLink>
-                <div className='news-flexbox'>
-                    <NavLink to={data[1]["path"]} className='news-section-link'><NewsItem large={false} title={data[1]["title"]} image={RiserImg}/></NavLink>
-                    <NavLink to={data[2]["path"]} className='news-section-link'><NewsItem large={false} title={data[2]["title"]} image={DotAwardImg}/></NavLink>
-                </div>
-                <div className='show-news'>
-                    <NavLink to='/news'><p>SHOW ALL NEWS</p></NavLink>
-                </div>
-            </div>
-        </div>
-    );
-}
-
 function SaleCard({product, image}) {
     let finalPrice = product.price * (1 - product.discount / 100);
     finalPrice = finalPrice.toFixed(2);
@@ -108,6 +91,23 @@ function SaleCard({product, image}) {
                 <div className='flexbox-center flexbox-row' style={{gap: 8}}>
                     <p className='discounted'>${product.price}</p>
                     <p>${finalPrice}</p>
+                </div>
+            </div>
+        </div>
+    );
+}
+
+function NewsSection({data}) {
+    return (
+        <div className='news-section'>
+            <div className='container news-container'>
+                <NavLink to={data[0]["path"]} className='news-section-link link-large'><NewsItem large={true} title={data[0]["title"]} image={CreatorImg}/></NavLink>
+                <div className='news-flexbox'>
+                    <NavLink to={data[1]["path"]} className='news-section-link'><NewsItem large={false} title={data[1]["title"]} image={RiserImg}/></NavLink>
+                    <NavLink to={data[2]["path"]} className='news-section-link'><NewsItem large={false} title={data[2]["title"]} image={DotAwardImg}/></NavLink>
+                </div>
+                <div className='show-news'>
+                    <NavLink to='/news'><p>SHOW ALL NEWS</p></NavLink>
                 </div>
             </div>
         </div>

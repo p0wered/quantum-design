@@ -4,6 +4,7 @@ import React, {useEffect} from "react";
 import titleImg from "../assets/products.jpg";
 import {CategoryData} from "../categories";
 import {Footer} from "../App";
+import {NavLink} from "react-router-dom";
 
 export function TitleSection({ image, title, desc }) {
     useEffect(() => {
@@ -26,7 +27,7 @@ function CategoriesGrid({data}) {
                 <div className='category-grid'>
                     {data.map((item) => {
                         return(
-                            <CategoryItem name={item.name} image={data.image}/>
+                            <CategoryItem name={item.name} image={item.image}/>
                         )
                     })}
                 </div>
@@ -37,15 +38,18 @@ function CategoriesGrid({data}) {
 
 function CategoryItem({name, image}) {
     return(
-        <div className='category-item'>
-            <h4>{name}</h4>
-            <div style={{backgroundImage: `url(${image})`, width: '10rem', aspectRatio: 1}}></div>
-        </div>
+        <NavLink to='/shop-page'>
+            <div className='category-item'>
+                <h4>{name}</h4>
+                <img className='category-image' src={image} alt={name}/>
+                <p className='catalog-link'>See more</p>
+            </div>
+        </NavLink>
     )
 }
 
 export default function CatalogPage() {
-    return(
+    return (
         <div>
             <TitleSection image={titleImg} title='PRODUCTS' desc='See all categories'/>
             <CategoriesGrid data={CategoryData}/>
