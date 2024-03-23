@@ -12,6 +12,8 @@ import ProductImg from '../assets/products.jpg';
 import CreatorImg from '../assets/streamer-img.jpg';
 import RiserImg from '../assets/card-riser.jpg';
 import DotAwardImg from '../assets/dot-award.jpg';
+import {NewsItem} from "./news-page";
+import {Footer} from "../App";
 
 function SimpleSlider({ slidesAmount, slidesPerScroll, products }) {
     let settings = {
@@ -95,23 +97,6 @@ function NewsSection({data}) {
     );
 }
 
-export function NewsItem({large, title, image}) {
-    let size, titleWidth;
-    if (large) {
-        size = 'news-section-item large-item';
-        titleWidth = '70%';
-    } else {
-        size = 'news-section-item'
-        titleWidth = '100%';
-    }
-
-    return (
-        <div className={size} style={{backgroundImage: `url(${image})`}}>
-            <h2 style={{width: titleWidth}}>{title}</h2>
-        </div>
-    );
-}
-
 function SaleCard({product, image}) {
     let finalPrice = product.price * (1 - product.discount / 100);
     finalPrice = finalPrice.toFixed(2);
@@ -148,16 +133,6 @@ function BlogSection (){
                     </form>
                 </div>
                 <button className='button-product sub-button'>SUBSCRIBE</button>
-            </div>
-        </div>
-    );
-}
-
-function Footer(){
-    return(
-        <div className='footer'>
-            <div className='container'>
-                <h4>test</h4>
             </div>
         </div>
     );

@@ -322,9 +322,14 @@ nav a:hover{
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  background-size: cover;
+  background-size: 200%;
   background-position: center;
   aspect-ratio: 3/4;
+  transition: .3s;
+}
+
+.sale-card:hover{
+  background-size: 208%;
 }
 
 .sale-card-info{
@@ -441,7 +446,7 @@ nav a:hover{
 .blog-container{
   display: flex;
   flex-direction: column;
-  align-items: end;
+  align-items: flex-end;
   gap: 1.325rem
 }
 
@@ -477,4 +482,22 @@ nav a:hover{
 
 .article-flexbox{
   width: 75%;
+}
+
+.category-item{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  aspect-ratio: 1;
+  padding: 1rem;
+  background-color: coral;
+}
+
+.category-grid{
+  display: grid;
+  grid-auto-rows: minmax(100px, auto);
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  padding: 2rem 0;
 }

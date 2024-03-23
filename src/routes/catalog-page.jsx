@@ -1,7 +1,9 @@
 import Aos from 'aos'
 import 'aos/dist/aos.css'
-import {useEffect} from "react";
+import React, {useEffect} from "react";
 import titleImg from "../assets/products.jpg";
+import {CategoryData} from "../categories";
+import {Footer} from "../App";
 
 export function TitleSection({ image, title, desc }) {
     useEffect(() => {
@@ -17,20 +19,27 @@ export function TitleSection({ image, title, desc }) {
     );
 }
 
-function CategoriesGrid() {
+function CategoriesGrid({data}) {
     return(
         <div className='categories-section'>
             <div className='container'>
-
+                <div className='category-grid'>
+                    {data.map((item) => {
+                        return(
+                            <CategoryItem name={item.name} image={data.image}/>
+                        )
+                    })}
+                </div>
             </div>
         </div>
     )
 }
 
-function CategoryItem() {
+function CategoryItem({name, image}) {
     return(
         <div className='category-item'>
-
+            <h4>{name}</h4>
+            <div style={{backgroundImage: `url(${image})`, width: '10rem', aspectRatio: 1}}></div>
         </div>
     )
 }
@@ -39,7 +48,8 @@ export default function CatalogPage() {
     return(
         <div>
             <TitleSection image={titleImg} title='PRODUCTS' desc='See all categories'/>
-            <CategoriesGrid/>
+            <CategoriesGrid data={CategoryData}/>
+            <Footer/>
         </div>
     )
 }

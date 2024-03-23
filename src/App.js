@@ -85,6 +85,16 @@ function NavBar() {
     );
 }
 
+export function Footer(){
+    return(
+        <div className='footer'>
+            <div className='container'>
+                <h4>test</h4>
+            </div>
+        </div>
+    );
+}
+
 export default function App() {
     return (
         <BrowserRouter>
