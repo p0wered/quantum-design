@@ -4,9 +4,7 @@ import AboutPage from "./routes/about-page";
 import React, {useEffect, useState} from "react";
 import {Squash} from "hamburger-react";
 import NewsPage from "./routes/news-page";
-import {NewsData} from "./news.js";
 import CatalogPage from "./routes/catalog-page";
-import {CreatorProgramPage, RiserPage} from "./routes/article-page";
 import Logo from './qd-white.png'
 import ShopPage from "./routes/shop-page";
 
@@ -90,10 +88,15 @@ function NavBar() {
 export function Footer(){
     return(
         <div className='footer'>
-            <div className='container'>
+            <div className='container' style={{padding: "1rem 2rem"}}>
                 <div className='footer-flexbox'>
                     <img src={Logo} alt="Logo" style={{width: 75, height: 50}}/>
-                    <button className='button-footer'>FIND RETAILERS</button>
+                    <div className='flexbox-center' style={{gap: 15}}>
+                        <i className="bi bi-twitter-x" style={{fontSize: 26}}></i>
+                        <i className="bi bi-facebook" style={{fontSize: 26}}></i>
+                        <i className="bi bi-youtube bi-search" style={{fontSize: 32}}></i>
+                    </div>
+                    <button className='button-footer'>Find Retailers</button>
                 </div>
             </div>
         </div>
@@ -110,8 +113,7 @@ export default function App() {
                 <Route path="/catalog" element={<CatalogPage/>}></Route>
                 <Route path="/news" element={<NewsPage/>}/>
                 <Route path="/shop" element={<ShopPage/>}/>
-                <Route path={NewsData[0].path} element={<CreatorProgramPage/>}/>
-                <Route path={NewsData[1].path} element={<RiserPage/>}/>
+                <Route path="/article/:id" component={<ArticlePage/>}/>
             </Routes>
         </BrowserRouter>
     );

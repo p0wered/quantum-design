@@ -1,14 +1,14 @@
 export const ProductsData = [
     {
         category: "Cases",
-        name: "Terra Case",
+        name: "Terra",
         price: 69.99,
         stock: 100,
         discount: 10,
     },
     {
         category: "Cases",
-        name: "North Case",
+        name: "North",
         price: 79.99,
         stock: 70,
         discount: 10,
@@ -16,77 +16,77 @@ export const ProductsData = [
     },
     {
         category: "Cases",
-        name: "Ridge Case",
+        name: "Ridge",
         price: 59.99,
         stock: 60,
         discount: 0
     },
     {
         category: "Cases",
-        name: "Pop Case",
+        name: "Pop",
         price: 39.99,
         stock: 150,
         discount: 30
     },
     {
         category: "Cases",
-        name: "Torrent Case",
+        name: "Torrent",
         price: 29.99,
         stock: 200,
         discount: 0
     },
     {
         category: "Cases",
-        name: "Torrent Nano Case",
+        name: "Torrent Nano",
         price: 29.99,
         stock: 200,
         discount: 0
     },
     {
         category: "Cases",
-        name: "Meshify 2 Compact Case",
+        name: "Meshify 2 Compact",
         price: 39.99,
         stock: 150,
         discount: 30
     },
     {
         category: "Cases",
-        name: "Meshify 2 Nano Case",
+        name: "Meshify 2 Nano",
         price: 39.99,
         stock: 150,
         discount: 30
     },
     {
         category: "Fans",
-        name: "Aspect Fan",
+        name: "Aspect 120mm",
         price: 19.99,
         stock: 150,
         discount: 15
     },
     {
         category: "Fans",
-        name: "Prisma Fan",
+        name: "Prisma 140mm",
         price: 19.99,
         stock: 150,
         discount: 15
     },
     {
         category: "PSU",
-        name: "Ion PSU",
+        name: "Ion 750W PSU",
         price: 19.99,
         stock: 150,
         discount: 15
     },
     {
         category: "Cooling",
-        name: "Lumen Cooling",
+        name: "Lumen 240mm",
         price: 19.99,
         stock: 150,
         discount: 15
     },
     {
         category: "Accessories",
-        name: "USB-C 10Gbps Cable – Model D",
+        name: "USB-C 10Gbps Cable",
         price: 9.99,
         stock: 0,
         discount: 0,
@@ -96,7 +96,7 @@ export const ProductsData = [
         category: "Accessories",
         name: "ATX12V 4+4 pin cable",
         price: 9.99,
-        stock: 0,
+        stock: 10,
         discount: 0
     },
 ]

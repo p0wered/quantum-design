@@ -184,6 +184,11 @@ nav a:hover{
 
 .bi{
   font-size: 24px;
+  transition: .3s;
+}
+
+.bi:hover{
+  transform: scale(108%);
 }
 
 .bi-search{
@@ -327,14 +332,18 @@ nav a:hover{
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  background-size: 200%;
-  background-position: center;
   aspect-ratio: 3/4;
   transition: .3s;
+  background-color: white;
 }
 
-.sale-card:hover{
-  background-size: 208%;
+.sale-card img{
+  transition: .3s;
+  padding: 0.625rem;
+}
+
+.sale-card img:hover{
+  transform: scale(105%);
 }
 
 .sale-card-info{
@@ -531,13 +540,9 @@ nav a:hover{
 
 .button-footer{
   cursor: pointer;
-  font-size: 14px;
-  font-weight: 600;
-  color: #1B1A1A;
-  background-color: #F7F7F7;
-  width: calc(9rem + 5vw);
-  padding: 2rem 3rem;
   border: none;
+  padding: 1rem 1.625rem;
+  font-weight: 600;
   transition: 0.3s;
 }
 

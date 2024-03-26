@@ -8,7 +8,6 @@ import Aos from 'aos'
 import 'aos/dist/aos.css'
 import {NavLink} from "react-router-dom";
 import NorthVideo from '../assets/north-case.mp4'
-import ProductImg from '../assets/products.jpg';
 import CreatorImg from '../assets/streamer-img.jpg';
 import RiserImg from '../assets/card-riser.jpg';
 import DotAwardImg from '../assets/dot-award.jpg';
@@ -31,7 +30,7 @@ function SimpleSlider({ slidesAmount, slidesPerScroll, products }) {
     products.forEach((product) => {
         if (product.discount !== 0){
             slides.push(
-                <SaleCard product={product} image={ProductImg}/>
+                <SaleCard product={product}/>
             );
         }
     });
@@ -80,12 +79,13 @@ function SaleSection() {
     );
 }
 
-function SaleCard({product, image}) {
+function SaleCard({product}) {
     let finalPrice = product.price * (1 - product.discount / 100);
     finalPrice = finalPrice.toFixed(2);
 
     return (
-        <div className='sale-card' style={{backgroundImage: `url(${image})`}}>
+        <div className='sale-card'>
+            <img src={product.image} alt={product.name}/>
             <div className='sale-card-info'>
                 <p>{product.name}</p>
                 <div className='flexbox-center flexbox-row' style={{gap: 8}}>
