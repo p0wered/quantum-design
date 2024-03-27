@@ -5,6 +5,7 @@ export const ProductsData = [
         price: 69.99,
         stock: 100,
         discount: 10,
+        image: require('./products/Terra_Jade_01-Left-Front-540x540.webp')
     },
     {
         category: "Cases",
@@ -19,70 +20,96 @@ export const ProductsData = [
         name: "Ridge",
         price: 59.99,
         stock: 60,
-        discount: 0
+        discount: 0,
+        image: require('./products/Ridge_White_1_Left_Front-540x540.webp')
     },
     {
         category: "Cases",
-        name: "Pop",
+        name: "Pop Mini Air",
         price: 39.99,
         stock: 150,
-        discount: 30
+        discount: 30,
+        image: require('./products/Pop_Mini_Air_RGB_Black_TGC_1-Front-Left-540x540.webp')
+    },
+    {
+        category: "Cases",
+        name: "Pop Silent",
+        price: 39.99,
+        stock: 150,
+        discount: 30,
+        image: require('./products/Pop_ATX_Silent_White_TGC_1-Front-Left-540x540.webp')
     },
     {
         category: "Cases",
         name: "Torrent",
         price: 29.99,
         stock: 200,
-        discount: 0
+        discount: 0,
+        image: require('./products/Torrent_Black_RGB_TGL_1-Left-Front-540x540.webp')
     },
     {
         category: "Cases",
         name: "Torrent Nano",
         price: 29.99,
         stock: 200,
-        discount: 0
+        discount: 0,
+        image: require('./products/Torrent_Nano_Black_RGB_TGL_1-Left-Front-540x540.webp')
     },
     {
         category: "Cases",
         name: "Meshify 2 Compact",
         price: 39.99,
         stock: 150,
-        discount: 30
+        discount: 30,
+        image: require('./products/Meshify_2_Compact_RGB_Black_TGL_1-Left-Front_Boost-540x540.webp')
     },
     {
         category: "Cases",
         name: "Meshify 2 Nano",
         price: 39.99,
         stock: 150,
-        discount: 30
+        discount: 30,
+        image: require('./products/Meshify_2_Nano_Black_TGD_1-Left-Front-540x540.webp')
     },
     {
         category: "Fans",
-        name: "Aspect 120mm",
+        name: "Aspect 12",
         price: 19.99,
         stock: 150,
-        discount: 15
+        discount: 15,
+        image: require('./products/Aspect-12-Black-Front-540x540.webp')
     },
     {
         category: "Fans",
-        name: "Prisma 140mm",
+        name: "Aspect 12 RGB",
         price: 19.99,
         stock: 150,
-        discount: 15
+        discount: 15,
+        image: require('./products/Aspect-12-RGB-PWM-Black-Frame-Front-540x540.webp')
+    },
+    {
+        category: "Fans",
+        name: "Prisma AL-14",
+        price: 19.99,
+        stock: 150,
+        discount: 15,
+        image: require('./products/Prisma-AL-14-White-Front-NorthernLights-540x540.webp')
     },
     {
         category: "PSU",
-        name: "Ion 750W PSU",
+        name: "Ion 850W PSU",
         price: 19.99,
         stock: 150,
-        discount: 15
+        discount: 15,
+        image: require('./products/Ion-Gold-850W-Top-Front-540x540.webp')
     },
     {
         category: "Cooling",
         name: "Lumen 240mm",
         price: 19.99,
         stock: 150,
-        discount: 15
+        discount: 15,
+        image: require('./products/Lumen-360-1-RGB-NorthernLights-540x540.jpg')
     },
     {
         category: "Accessories",
@@ -97,6 +124,7 @@ export const ProductsData = [
         name: "ATX12V 4+4 pin cable",
         price: 9.99,
         stock: 10,
-        discount: 0
+        discount: 0,
+        image: require('./products/Ion-Cable-ATX12VBox-540x540.webp')
     },
 ]

@@ -84,7 +84,7 @@ function SaleCard({product}) {
     finalPrice = finalPrice.toFixed(2);
 
     return (
-        <div className='sale-card'>
+        <NavLink to='/product' className='sale-card'>
             <img src={product.image} alt={product.name}/>
             <div className='sale-card-info'>
                 <p>{product.name}</p>
@@ -93,7 +93,7 @@ function SaleCard({product}) {
                     <p>${finalPrice}</p>
                 </div>
             </div>
-        </div>
+        </NavLink>
     );
 }
 

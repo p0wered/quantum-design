@@ -7,6 +7,7 @@ import NewsPage from "./routes/news-page";
 import CatalogPage from "./routes/catalog-page";
 import Logo from './qd-white.png'
 import ShopPage from "./routes/shop-page";
+import ArticlePage from "./routes/article-page";
 
 function NavBar() {
 
@@ -113,7 +114,7 @@ export default function App() {
                 <Route path="/catalog" element={<CatalogPage/>}></Route>
                 <Route path="/news" element={<NewsPage/>}/>
                 <Route path="/shop" element={<ShopPage/>}/>
-                <Route path="/article/:id" component={<ArticlePage/>}/>
+                <Route path="/article/:id" element={<ArticlePage/>}/>
             </Routes>
         </BrowserRouter>
     );

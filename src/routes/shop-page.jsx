@@ -1,5 +1,6 @@
 import {ProductsData} from '../products.js'
 import {useState} from "react";
+import {NavLink} from "react-router-dom";
 
 function Filters({products, setCategories}) {
     const rows = [];
@@ -54,11 +55,11 @@ function CatalogItem({product}) {
     product.stock > 0 ? stocked = 'catalog-item' : stocked = 'catalog-item not-stocked'
 
     return (
-        <div className={stocked}>
+        <NavLink to='/product' className={stocked}>
             <img src={product.image} alt={product.name} style={{width: '100%'}}/>
             <p style={{fontWeight: 600, fontSize: '17px'}}>{product.name}</p>
-            <p>{product.price}$</p>
-        </div>
+            <p>{product.stock > 0 ? `${product.price}$` : 'Sold out'}</p>
+        </NavLink>
     )
 }
 
@@ -88,7 +89,7 @@ export default function ShopPage() {
     const [selectedCategories, setSelectedCategories] = useState([]);
 
     return (
-        <div className='container'>
+        <div className='container-wide'>
             <div style={{height: 91, width: '100%'}}></div>
             <div className='filters-flexbox'>
                 <Filters products={ProductsData} categories={selectedCategories} setCategories={setSelectedCategories}/>

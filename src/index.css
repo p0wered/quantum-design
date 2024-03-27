@@ -109,6 +109,12 @@ nav:hover{
   padding: 2rem;
 }
 
+.container-wide{
+  width: 1320px;
+  margin: auto;
+  padding: 2rem;
+}
+
 .navbar-container{
   padding: 1.625rem;
   display: flex;
@@ -208,12 +214,13 @@ nav a:hover{
 .filters{
   background-color: #FFFFFF;
   width: fit-content;
-  padding: 1rem 5rem;
+  padding: 2rem;
 }
 
 .filters-flexbox{
   display: flex;
   padding: 1rem 0;
+  gap: 10px;
 }
 
 .filters-item{
@@ -224,7 +231,6 @@ nav a:hover{
 
 .catalog-grid{
   width: 100%;
-  padding: 0 1rem;
   display: grid;
   grid-auto-rows: minmax(100px, auto);
   grid-template-columns: repeat(3, 1fr);
@@ -236,6 +242,15 @@ nav a:hover{
   height: 100%;
   background-color: white;
   padding: 1rem;
+  transition: .3s;
+}
+
+.catalog-item > img{
+  transition: .3s;
+}
+
+.catalog-item:hover > img{
+  transform: scale(102%);
 }
 
 .not-stocked{
