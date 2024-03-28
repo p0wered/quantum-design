@@ -1,6 +1,8 @@
 import {ProductsData} from '../products.js'
 import {useState} from "react";
 import {NavLink} from "react-router-dom";
+import ProductImg from "../assets/products.jpg"
+import {TitleSection} from "./catalog-page";
 
 function Filters({products, setCategories}) {
     const rows = [];
@@ -29,7 +31,9 @@ function Filters({products, setCategories}) {
     return (
         <div className='filters'>
             <h4 style={{fontWeight: 700}}>Filters</h4>
-            {uniqueRows}
+            <div>
+                {uniqueRows}
+            </div>
         </div>
     );
 }
@@ -99,11 +103,13 @@ export default function ShopPage() {
     const [selectedCategories, setSelectedCategories] = useState([]);
 
     return (
-        <div className='container-large'>
-            <div style={{height: 91, width: '100%'}}></div>
-            <div className='filters-flexbox'>
-                <Filters products={ProductsData} categories={selectedCategories} setCategories={setSelectedCategories}/>
-                <CatalogGrid products={ProductsData} filter={selectedCategories}/>
+        <div>
+            <TitleSection image={ProductImg} title='SHOP' desc='See our products'/>
+            <div className='container-large'>
+                <div className='filters-flexbox'>
+                    <Filters products={ProductsData} categories={selectedCategories} setCategories={setSelectedCategories}/>
+                    <CatalogGrid products={ProductsData} filter={selectedCategories}/>
+                </div>
             </div>
         </div>
     );

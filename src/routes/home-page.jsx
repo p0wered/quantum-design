@@ -84,16 +84,18 @@ function SaleCard({product}) {
     finalPrice = finalPrice.toFixed(2);
 
     return (
-        <NavLink to='/product' className='sale-card'>
+        <div className='sale-card'>
             <img src={product.image} alt={product.name}/>
-            <div className='sale-card-info'>
-                <p>{product.name}</p>
-                <div className='flexbox-center flexbox-row' style={{gap: 8}}>
-                    <p className='discounted'>${product.price}</p>
-                    <p>${finalPrice}</p>
+            <NavLink to='/product'>
+                <div className='sale-card-info'>
+                    <p>{product.name}</p>
+                    <div className='flexbox-center flexbox-row' style={{gap: 8}}>
+                        <p className='discounted'>${product.price}</p>
+                        <p>${finalPrice}</p>
+                    </div>
                 </div>
-            </div>
-        </NavLink>
+            </NavLink>
+        </div>
     );
 }
 
@@ -101,7 +103,9 @@ function NewsSection({data}) {
     return (
         <div className='news-section'>
             <div className='container-small news-container'>
-                <NavLink to={data[0]["path"]} className='news-section-link link-large'><NewsItem large={true} title={data[0]["title"]} image={CreatorImg}/></NavLink>
+                <NavLink to={data[0]["path"]} className='news-section-link link-large'><NewsItem large={true}
+                                                                                                 title={data[0]["title"]}
+                                                                                                 image={CreatorImg}/></NavLink>
                 <div className='news-flexbox'>
                     <NavLink to={data[1]["path"]} className='news-section-link'><NewsItem large={false} title={data[1]["title"]} image={RiserImg}/></NavLink>
                     <NavLink to={data[2]["path"]} className='news-section-link'><NewsItem large={false} title={data[2]["title"]} image={DotAwardImg}/></NavLink>
