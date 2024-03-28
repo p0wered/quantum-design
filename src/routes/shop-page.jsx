@@ -26,7 +26,12 @@ function Filters({products, setCategories}) {
 
     let uniqueRows = rows.unique();
 
-    return <div className='filters'>{uniqueRows}</div>;
+    return (
+        <div className='filters'>
+            <h4 style={{fontWeight: 700}}>Filters</h4>
+            {uniqueRows}
+        </div>
+    );
 }
 
 function CategoryItem({ category, value, setSelectedCategories }) {
@@ -44,8 +49,13 @@ function CategoryItem({ category, value, setSelectedCategories }) {
 
     return (
         <div className='filters-item'>
-            <input type='checkbox' value={value} onChange={handleChange} />
-            <p>{category}</p>
+            <div className="checkboxes__item">
+                <label className="checkbox style-c">
+                    <input type="checkbox" value={value} onChange={handleChange}/>
+                    <div className="checkbox__checkmark"></div>
+                    <div className="checkbox__body">{category}</div>
+                </label>
+            </div>
         </div>
     );
 }
@@ -56,7 +66,7 @@ function CatalogItem({product}) {
 
     return (
         <NavLink to='/product' className={stocked}>
-            <img src={product.image} alt={product.name} style={{width: '100%'}}/>
+        <img src={product.image} alt={product.name} style={{width: '100%'}}/>
             <p style={{fontWeight: 600, fontSize: '17px'}}>{product.name}</p>
             <p>{product.stock > 0 ? `${product.price}$` : 'Sold out'}</p>
         </NavLink>
@@ -89,7 +99,7 @@ export default function ShopPage() {
     const [selectedCategories, setSelectedCategories] = useState([]);
 
     return (
-        <div className='container-wide'>
+        <div className='container-large'>
             <div style={{height: 91, width: '100%'}}></div>
             <div className='filters-flexbox'>
                 <Filters products={ProductsData} categories={selectedCategories} setCategories={setSelectedCategories}/>

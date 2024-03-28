@@ -2,11 +2,17 @@
     .container{
         width: 1140px;
     }
-    .container-wide{
+    .container-large{
         width: 1140px;
+    }
+    .container-small{
+        width: 965px;
     }
     .slider-container{
         width: 1200px;
+    }
+    .large-item{
+        height: 441px;
     }
 }
 
@@ -14,8 +20,9 @@
     .container{
         width: 960px;
     }
-    .container-wide{
+    .container-large{
         width: 100%;
+        padding: 10px;
     }
     .slider-container{
         width: 1000px;
@@ -110,5 +117,11 @@
     .category-grid{
         padding: 0;
         grid-template-columns: repeat(1, 1fr);
+    }
+    .filters-flexbox{
+        flex-direction: column;
+    }
+    .filters{
+        width: 100%;
     }
 }
