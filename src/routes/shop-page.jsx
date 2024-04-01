@@ -5,11 +5,14 @@ import ProductImg from "../assets/products.jpg"
 import {TitleSection} from "./catalog-page";
 
 function Filters({products, setCategories}) {
-    const rows = [];
-    let lastCategory = [];
+    const categories = [];
+    const categoriesIncluded = [];
+    const colors = [];
+    const colorsIncluded = [];
+
     products.forEach((product) => {
-        if (!lastCategory.includes(product.category)) {
-            rows.push(
+        if (!categoriesIncluded.includes(product.category)) {
+            categories.push(
                 <CategoryItem
                     category={product.category}
                     value={product.category}
@@ -17,22 +20,34 @@ function Filters({products, setCategories}) {
                     key={product.category}
                 />
             );
+            categoriesIncluded.push(product.category);
         }
-        lastCategory.push(product.category);
+        if (product.color) {
+            product.color.forEach((color) => {
+                if (!colorsIncluded.includes(color)) {
+                    colors.push(
+                        <ColorItem color={color}
+                                   value={color}
+                                   setSelectedCategories={setCategories}
+                                   key={color}
+                        />
+                    )
+                    colorsIncluded.push(color);
+                }
+            })
+        }
     });
-
-    // eslint-disable-next-line no-extend-native
-    Array.prototype.unique = function () {
-        return Array.from(new Set(this));
-    };
-
-    let uniqueRows = rows.unique();
 
     return (
         <div className='filters'>
-            <h4 style={{fontWeight: 700}}>Filters</h4>
-            <div>
-                {uniqueRows}
+            <h4 style={{fontWeight: 700}}>Refine By</h4>
+            <p>Category</p>
+            <div className='filters-block'>
+                {categories}
+            </div>
+            <p>Color</p>
+            <div className='filters-block'>
+                {colors}
             </div>
         </div>
     );
@@ -53,11 +68,11 @@ function CategoryItem({ category, value, setSelectedCategories }) {
 
     return (
         <div className='filters-item'>
-            <div className="checkboxes__item">
+            <div className="checkboxes-item">
                 <label className="checkbox style-c">
                     <input type="checkbox" value={value} onChange={handleChange}/>
-                    <div className="checkbox__checkmark"></div>
-                    <div className="checkbox__body">{category}</div>
+                    <div className="checkbox-checkmark"></div>
+                    <div className="checkbox-body">{category}</div>
                 </label>
             </div>
         </div>
@@ -77,6 +92,31 @@ function CatalogItem({product}) {
     )
 }
 
+function ColorItem({color, value, setSelectedCategories}) {
+    const colorChange = (event) => {
+        const isChecked = event.target.checked;
+
+        if (isChecked) {
+            setSelectedCategories((prevCategories) => [...prevCategories, value]);
+        } else {
+            setSelectedCategories((prevCategories) =>
+                prevCategories.filter((colorValue) => colorValue !== value)
+            );
+        }
+    };
+
+    return (
+        <div className='filters-item'>
+            <div className="checkboxes-item">
+                <label className="checkbox style-c">
+                    <input type="checkbox" value={value} onChange={colorChange}/>
+                    <div className="checkbox-checkmark" style={{backgroundColor: color}}></div>
+                </label>
+            </div>
+        </div>
+    );
+}
+
 function CatalogGrid({products, filter}) {
     let items = []
 
@@ -88,6 +128,13 @@ function CatalogGrid({products, filter}) {
         products.forEach(product => {
             if (filter.includes(product.category)) {
                 items.push(<CatalogItem product={product} key={product}/>)
+            }
+            if (product.color) {
+                product.color.forEach((color) => {
+                    if (filter.includes(color)) {
+                        items.push(<CatalogItem product={product} key={product}/>)
+                    }
+                })
             }
         })
     }
@@ -105,10 +152,13 @@ export default function ShopPage() {
     return (
         <div>
             <TitleSection image={ProductImg} title='SHOP' desc='See our products'/>
-            <div className='container-large'>
-                <div className='filters-flexbox'>
-                    <Filters products={ProductsData} categories={selectedCategories} setCategories={setSelectedCategories}/>
-                    <CatalogGrid products={ProductsData} filter={selectedCategories}/>
+            <div className='shop-section'>
+                <div className='container-large'>
+                    <div className='filters-flexbox'>
+                        <Filters products={ProductsData} categories={selectedCategories}
+                                 setCategories={setSelectedCategories}/>
+                        <CatalogGrid products={ProductsData} filter={selectedCategories}/>
+                    </div>
                 </div>
             </div>
         </div>
