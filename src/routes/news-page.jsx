@@ -11,11 +11,11 @@ function AllNews({data}) {
             <TitleSection image={TitleImg} title='NEWS' desc='See our latest news'/>
             <div className='news-section'>
                 <div className='container news-container'>
-                    <NavLink key={NewsData[0].id} to={NewsData[0].path} className='news-section-link link-large'><NewsItem large={true} title={NewsData[0].title} image={NewsData[0].img}/></NavLink>
+                    <NavLink key={NewsData[0].id} to={`/news/article/${NewsData[0].id}`} className='news-section-link link-large'><NewsItem large={true} title={NewsData[0].title} image={NewsData[0].img}/></NavLink>
                     <div className='news-grid' style={{gap: 30}}>
                         {data.slice(1, data.length).map((item) => {
                             return(
-                                <NavLink key={item.id} to={`/news/${item.id}`} className='news-section-link link-large'><NewsItem large={false} title={item.title} image={item.img}/></NavLink>
+                                <NavLink key={item.id} to={`/news/article/${item.id}`} className='news-section-link link-large'><NewsItem large={false} title={item.title} image={item.img}/></NavLink>
                             )
                         })}
                     </div>

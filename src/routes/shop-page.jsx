@@ -3,8 +3,10 @@ import {useState} from "react";
 import {NavLink} from "react-router-dom";
 import ProductImg from "../assets/products.jpg"
 import {TitleSection} from "./catalog-page";
+import RangeSlider from 'react-range-slider-input';
+import 'react-range-slider-input/dist/style.css';
 
-function Filters({products, setCategories}) {
+function Filters({products, setCategories, setColors}) {
     const categories = [];
     const categoriesIncluded = [];
     const colors = [];
@@ -28,7 +30,7 @@ function Filters({products, setCategories}) {
                     colors.push(
                         <ColorItem color={color}
                                    value={color}
-                                   setSelectedCategories={setCategories}
+                                   setSelectedColors={setColors}
                                    key={color}
                         />
                     )
@@ -55,9 +57,9 @@ function Filters({products, setCategories}) {
 
 function CategoryItem({ category, value, setSelectedCategories }) {
     const handleChange = (event) => {
-        const isChecked = event.target.checked;
+        const categoryChecked = event.target.checked;
 
-        if (isChecked) {
+        if (categoryChecked) {
             setSelectedCategories((prevCategories) => [...prevCategories, value]);
         } else {
             setSelectedCategories((prevCategories) =>
@@ -92,15 +94,15 @@ function CatalogItem({product}) {
     )
 }
 
-function ColorItem({color, value, setSelectedCategories}) {
+function ColorItem({color, value, setSelectedColors}) {
     const colorChange = (event) => {
-        const isChecked = event.target.checked;
+        const colorChecked = event.target.checked;
 
-        if (isChecked) {
-            setSelectedCategories((prevCategories) => [...prevCategories, value]);
+        if (colorChecked) {
+            setSelectedColors((prevColors) => [...prevColors, value]);
         } else {
-            setSelectedCategories((prevCategories) =>
-                prevCategories.filter((colorValue) => colorValue !== value)
+            setSelectedColors((prevColors) =>
+                prevColors.filter((colorValue) => colorValue !== value)
             );
         }
     };
@@ -117,37 +119,26 @@ function ColorItem({color, value, setSelectedCategories}) {
     );
 }
 
-function CatalogGrid({products, filter}) {
-    let items = []
+function CatalogGrid({products, filterCategory, filterColor}) {
+    const filteredProducts = products.filter(product => {
+        if (filterCategory.length > 0 && !filterCategory.includes(product.category)) {
+            return false;
+        }
+        return !(filterColor.length > 0 && (!product.color || !product.color.some(color => filterColor.includes(color))));
+    });
 
-    if (filter.length === 0) {
-        products.forEach(product => {
-            items.push(<CatalogItem product={product} key={product}/>)
-        })
-    } else {
-        products.forEach(product => {
-            if (filter.includes(product.category)) {
-                items.push(<CatalogItem product={product} key={product}/>)
-            }
-            if (product.color) {
-                product.color.forEach((color) => {
-                    if (filter.includes(color)) {
-                        items.push(<CatalogItem product={product} key={product}/>)
-                    }
-                })
-            }
-        })
-    }
-
-    return(
+    return (
         <div className="catalog-grid">
-            {items}
+            {filteredProducts.map(product => (
+                <CatalogItem product={product} key={product.id}/>
+            ))}
         </div>
     );
 }
 
 export default function ShopPage() {
     const [selectedCategories, setSelectedCategories] = useState([]);
+    const [selectedColors, setSelectedColors] = useState([]);
 
     return (
         <div>
@@ -156,8 +147,8 @@ export default function ShopPage() {
                 <div className='container-large'>
                     <div className='filters-flexbox'>
                         <Filters products={ProductsData} categories={selectedCategories}
-                                 setCategories={setSelectedCategories}/>
-                        <CatalogGrid products={ProductsData} filter={selectedCategories}/>
+                                 setCategories={setSelectedCategories} setColors={setSelectedColors}/>
+                        <CatalogGrid products={ProductsData} filterCategory={selectedCategories} filterColor={selectedColors}/>
                     </div>
                 </div>
             </div>

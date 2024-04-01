@@ -114,7 +114,7 @@ export default function App() {
                 <Route path="/catalog" element={<CatalogPage/>}></Route>
                 <Route path="/news" element={<NewsPage/>}/>
                 <Route path="/shop" element={<ShopPage/>}/>
-                <Route path="/article/:id" element={<ArticlePage/>}/>
+                <Route path="/news/article/:id" element={<ArticlePage/>}/>
             </Routes>
         </BrowserRouter>
     );
