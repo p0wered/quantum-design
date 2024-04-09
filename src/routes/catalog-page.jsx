@@ -12,21 +12,23 @@ export function TitleSection({ image, title, desc }) {
     }, []);
 
     return (
-        <div className='title-section image-box' style={{backgroundImage: `url(${image})`}}>
-            <h1 data-aos='fade-up' data-aos-duration='1000'>{title}</h1>
-            <h4 className='desc' data-aos='fade-up' data-aos-duration='1000'
-                data-aos-delay='100'>{desc}</h4>
+        <div className='section-wrapper'>
+            <div className='title-section image-box' style={{backgroundImage: `url(${image})`}}>
+                <h1 data-aos='fade-up' data-aos-duration='1000'>{title}</h1>
+                <h4 className='desc' data-aos='fade-up' data-aos-duration='1000'
+                    data-aos-delay='100'>{desc}</h4>
+            </div>
         </div>
     );
 }
 
 function CategoriesGrid({data}) {
-    return(
+    return (
         <div className='categories-section'>
             <div className='container'>
                 <div className='category-grid'>
                     {data.map((item) => {
-                        return(
+                        return (
                             <CategoryItem name={item.name} image={item.image}/>
                         )
                     })}

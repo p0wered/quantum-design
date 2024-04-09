@@ -10,7 +10,7 @@ export default function ArticlePage() {
     return(
         <div>
             <TitleSection image={item.img} title={item.title}></TitleSection>
-            <div className='container flexbox-center'>
+            <div className='container-small flexbox-center'>
                 <div className='item-flexbox'>
                     <p className='text-gray'>{item.date}</p>
                     <p style={{fontSize: 20}}>{item.desc}</p>

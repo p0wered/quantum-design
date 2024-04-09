@@ -24,6 +24,9 @@
         width: 100%;
         padding: 10px;
     }
+    .container-small{
+        width: 765px;
+    }
     .slider-container{
         width: 1000px;
     }
@@ -51,6 +54,9 @@
     .container{
         width: 720px;
         padding: 1rem;
+    }
+    .container-small{
+        width: 665px;
     }
     h1{
         font-size: 42px;
@@ -88,7 +94,7 @@
     .sub-button{
         width: 100%;
     }
-    .title-section{
+    .section-wrapper{
         height: 50vh;
     }
     .category-grid{
@@ -98,10 +104,16 @@
     .catalog-grid{
         grid-template-columns: repeat(2, 1fr);
     }
+    .image-box{
+        background-size: cover;
+    }
 }
 
 @media screen and (max-width: 720px) {
     .container{
+        width: 100%;
+    }
+    .container-small{
         width: 100%;
     }
     .news-flexbox{
@@ -123,5 +135,14 @@
     }
     .filters{
         width: 100%;
+    }
+}
+
+@keyframes bgFadeIn {
+    0% {
+        transform: scale(105%);
+    }
+    100% {
+        transform: scale(100%);
     }
 }

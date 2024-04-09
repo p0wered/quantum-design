@@ -3,7 +3,6 @@ import {useState} from "react";
 import {NavLink} from "react-router-dom";
 import ProductImg from "../assets/products.jpg"
 import {TitleSection} from "./catalog-page";
-import RangeSlider from 'react-range-slider-input';
 import 'react-range-slider-input/dist/style.css';
 
 function Filters({products, setCategories, setColors}) {

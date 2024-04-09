@@ -102,7 +102,7 @@ function SaleCard({product}) {
 function NewsSection({data}) {
     return (
         <div className='news-section'>
-            <div className='container-small news-container'>
+            <div className='container news-container'>
                 <NavLink to={data[0]["path"]} className='news-section-link link-large'><NewsItem large={true}
                                                                                                  title={data[0]["title"]}
                                                                                                  image={CreatorImg}/></NavLink>
