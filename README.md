@@ -1,7 +1,6 @@
 # Quantum Design
-
-## E-commerce digital shop project using React JS
-Subject: PC Hardware brand \
-Not for commercial purposes! \
+## Front-end Project using React JS
+Type: E-Commerce \
+Subject: PC Hardware Brand
 
 ![scr.png](scr.png)

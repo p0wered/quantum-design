@@ -8,6 +8,7 @@ import CatalogPage from "./routes/catalog-page";
 import Logo from './qd-white.png'
 import ShopPage from "./routes/shop-page";
 import ArticlePage from "./routes/article-page";
+import ProductPage from "./routes/product-page";
 
 function NavBar() {
 
@@ -64,7 +65,6 @@ function NavBar() {
                     <NavLink to="/" className='logo-link'>Quantum<span style={{fontWeight: 700}}>Design</span></NavLink>
                     <div className="navbar-links links-right">
                         <NavLink to="/"><i className="bi bi-bag"></i></NavLink>
-                        <NavLink to="/"><i className="bi bi-person-circle" style={{fontSize: 26}}></i></NavLink>
                         <NavLink to="/"><i className="bi bi-search"></i></NavLink>
                     </div>
                     <Squash toggled={isOpen} toggle={setIsOpen}></Squash>
@@ -78,7 +78,6 @@ function NavBar() {
                 </div>
                 <div className="links-bottom">
                     <NavLink to="/"><i className="bi bi-bag" style={{fontSize: 42}}></i></NavLink>
-                    <NavLink to="/"><i className="bi bi-person-circle" style={{fontSize: 42}}></i></NavLink>
                     <NavLink to="/"><i className="bi bi-search" style={{fontSize: 42}}></i></NavLink>
                 </div>
             </div>
@@ -115,6 +114,7 @@ export default function App() {
                 <Route path="/news" element={<NewsPage/>}/>
                 <Route path="/shop" element={<ShopPage/>}/>
                 <Route path="/news/article/:id" element={<ArticlePage/>}/>
+                <Route path="/shop/product" element={<ProductPage/>}/>
             </Routes>
         </BrowserRouter>
     );

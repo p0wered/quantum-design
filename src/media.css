@@ -136,6 +136,23 @@
     .filters{
         width: 100%;
     }
+    .bi-caret-down-fill{
+        display: block;
+    }
+    .image-left{
+        padding: 0;
+        flex-direction: column-reverse;
+    }
+    .image-right{
+        padding: 0;
+        flex-direction: column-reverse;
+    }
+    .dark-bg{
+        padding: 0;
+    }
+    .in-text-image{
+        height: 20rem;
+    }
 }
 
 @keyframes bgFadeIn {

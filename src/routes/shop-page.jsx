@@ -1,7 +1,7 @@
 import {ProductsData} from '../products.js'
 import {useState} from "react";
 import {NavLink} from "react-router-dom";
-import ProductImg from "../assets/products.jpg"
+import ShopImg from '../assets/shop.jpg'
 import {TitleSection} from "./catalog-page";
 import 'react-range-slider-input/dist/style.css';
 
@@ -41,13 +41,16 @@ function Filters({products, setCategories, setColors}) {
 
     return (
         <div className='filters'>
-            <h4 style={{fontWeight: 700}}>Refine By</h4>
+            <div className='flexbox-row' style={{justifyContent: 'space-between'}}>
+                <h4 style={{fontWeight: 700}}>Refine By</h4>
+                <i className="bi bi-caret-down-fill"></i>
+            </div>
             <p>Category</p>
             <div className='filters-block'>
                 {categories}
             </div>
             <p>Color</p>
-            <div className='filters-block'>
+            <div className='filters-block-row'>
                 {colors}
             </div>
         </div>
@@ -85,7 +88,7 @@ function CatalogItem({product}) {
     product.stock > 0 ? stocked = 'catalog-item' : stocked = 'catalog-item not-stocked'
 
     return (
-        <NavLink to='/product' className={stocked}>
+        <NavLink to='/shop/product' className={stocked}>
         <img src={product.image} alt={product.name} style={{width: '100%'}}/>
             <p style={{fontWeight: 600, fontSize: '17px'}}>{product.name}</p>
             <p>{product.stock > 0 ? `${product.price}$` : 'Sold out'}</p>
@@ -141,7 +144,7 @@ export default function ShopPage() {
 
     return (
         <div>
-            <TitleSection image={ProductImg} title='SHOP' desc='See our products'/>
+            <TitleSection image={ShopImg} title='SHOP' desc='See our products'/>
             <div className='shop-section'>
                 <div className='container-large'>
                     <div className='filters-flexbox'>

@@ -14,7 +14,7 @@ import DotAwardImg from '../assets/dot-award.jpg';
 import {NewsItem} from "./news-page";
 import {Footer} from "../App";
 
-function SimpleSlider({ slidesAmount, slidesPerScroll, products }) {
+export function SimpleSlider({ slidesAmount, slidesPerScroll, products }) {
     let settings = {
         dots: false,
         infinite: true,
@@ -52,7 +52,7 @@ function ProductSection({video, title, desc, category}) {
             <video className='product-video' src={video} loop autoPlay></video>
             <div className='flexbox-column' data-aos='fade-in' data-aos-duration='800'>
                 <h1>{title}</h1>
-                <h4 style={{fontWeight:     400, letterSpacing: 3}}>{desc}</h4>
+                <h4 style={{fontWeight: 400, letterSpacing: 3}}>{desc}</h4>
                 <div className='button-list'>
                     <button className='button-product'>BUY</button>
                     <button className='button-product'>SEE ALL {category}</button>
@@ -70,9 +70,9 @@ function SaleSection() {
     })
 
     return (
-        <div className='sale-section'>
-            <h2 style={{color: 'white'}}>BEST SALES</h2>
-            <div className='slider-container'>
+        <div className='sale-section' >
+            <h2 style={{color: 'white'}} data-aos='fade-in' data-aos-duration='800'>BEST SALES</h2>
+            <div className='slider-container' data-aos='fade-in' data-aos-duration='800'>
                 <SimpleSlider slidesAmount={currentWidth < 1200 ? 3 : 4} slidesPerScroll={currentWidth < 1200 ? 1 : 4} products={ProductsData}/>
             </div>
         </div>
@@ -103,15 +103,15 @@ function NewsSection({data}) {
     return (
         <div className='news-section'>
             <div className='container news-container'>
-                <NavLink to={data[0]["path"]} className='news-section-link link-large'><NewsItem large={true}
+                <NavLink to={data[0]["path"]} className='news-section-link link-large' data-aos='fade-in' data-aos-duration='800'><NewsItem large={true}
                                                                                                  title={data[0]["title"]}
                                                                                                  image={CreatorImg}/></NavLink>
                 <div className='news-flexbox'>
-                    <NavLink to={data[1]["path"]} className='news-section-link'><NewsItem large={false} title={data[1]["title"]} image={RiserImg}/></NavLink>
-                    <NavLink to={data[2]["path"]} className='news-section-link'><NewsItem large={false} title={data[2]["title"]} image={DotAwardImg}/></NavLink>
+                    <NavLink to={data[1]["path"]} className='news-section-link' data-aos='fade-in' data-aos-duration='800'><NewsItem large={false} title={data[1]["title"]} image={RiserImg}/></NavLink>
+                    <NavLink to={data[2]["path"]} className='news-section-link' data-aos='fade-in' data-aos-duration='800'><NewsItem large={false} title={data[2]["title"]} image={DotAwardImg}/></NavLink>
                 </div>
                 <div className='show-news'>
-                    <NavLink to='/news'><p>SHOW ALL NEWS</p></NavLink>
+                    <NavLink to='/news' data-aos='fade-in' data-aos-duration='800'><p>SHOW ALL NEWS</p></NavLink>
                 </div>
             </div>
         </div>
@@ -121,7 +121,7 @@ function NewsSection({data}) {
 function BlogSection (){
     return(
         <div className='blog-section'>
-            <div className='container blog-container' style={{padding: '6rem 2rem'}}>
+            <div className='container blog-container' style={{padding: '6rem 2rem'}} data-aos='fade-in' data-aos-duration='800'>
                 <div className='blog-flexbox'>
                     <div>
                         <h3 style={{marginBottom: '1rem'}}>Sign up to our newsletter</h3>

@@ -40,7 +40,7 @@ function CategoriesGrid({data}) {
 
 function CategoryItem({name, image}) {
     return(
-        <NavLink to='/shop'>
+        <NavLink to='/shop' data-aos='fade-up' data-aos-duration='500'>
             <div className='category-item'>
                 <h4>{name}</h4>
                 <img className='category-image' src={image} alt={name}/>
