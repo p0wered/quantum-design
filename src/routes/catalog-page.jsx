@@ -5,6 +5,7 @@ import titleImg from "../assets/products.jpg";
 import {CategoryData} from "../categories";
 import {Footer} from "../App";
 import {NavLink} from "react-router-dom";
+import {ParallaxBanner, ParallaxProvider} from "react-scroll-parallax";
 
 export function TitleSection({ image, title, desc }) {
     useEffect(() => {
@@ -12,12 +13,17 @@ export function TitleSection({ image, title, desc }) {
     }, []);
 
     return (
+
         <div className='section-wrapper'>
-            <div className='title-section image-box' style={{backgroundImage: `url(${image})`}}>
-                <h1 data-aos='fade-up' data-aos-duration='1000'>{title}</h1>
-                <h4 className='desc' data-aos='fade-up' data-aos-duration='1000'
-                    data-aos-delay='100'>{desc}</h4>
-            </div>
+            <ParallaxProvider>
+                <ParallaxBanner className='title-section image-box' layers={[{image: image, speed: -20}]}>
+                    <div>
+                        <h1 data-aos='fade-up' data-aos-duration='1000'>{title}</h1>
+                        <h4 className='desc' data-aos='fade-up' data-aos-duration='1000'
+                            data-aos-delay='100'>{desc}</h4>
+                    </div>
+                </ParallaxBanner>
+            </ParallaxProvider>
         </div>
     );
 }

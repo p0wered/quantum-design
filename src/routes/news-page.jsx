@@ -1,4 +1,4 @@
-import {NavLink} from "react-router-dom";
+import {Link} from "react-router-dom";
 import {TitleSection} from "./catalog-page";
 import TitleImg from "../assets/news-img.jpg"
 import React from "react";
@@ -11,11 +11,11 @@ function AllNews({data}) {
             <TitleSection image={TitleImg} title='NEWS' desc='See our latest news'/>
             <div className='news-section'>
                 <div className='container news-container'>
-                    <NavLink key={NewsData[0].id} to={`/news/article/${NewsData[0].id}`} className='news-section-link link-large'><NewsItem large={true} title={NewsData[0].title} image={NewsData[0].img}/></NavLink>
+                    <Link key={NewsData[0].id} to={`/news/article/${NewsData[0].id}`} className='news-section-link link-large'><NewsItem large={true} title={NewsData[0].title} image={NewsData[0].img}/></Link>
                     <div className='news-grid' style={{gap: 30}}>
                         {data.slice(1, data.length).map((item) => {
                             return(
-                                <NavLink key={item.id} to={`/news/article/${item.id}`} className='news-section-link link-large'><NewsItem large={false} title={item.title} image={item.img}/></NavLink>
+                                <Link key={item.id} to={`/news/article/${item.id}`} className='news-section-link link-large'><NewsItem large={false} title={item.title} image={item.img}/></Link>
                             )
                         })}
                     </div>
@@ -31,7 +31,7 @@ export function NewsItem({large, title, image}) {
         size = 'news-section-item large-item';
         titleWidth = '70%';
     } else {
-        size = 'news-section-item'
+        size = 'news-section-item small-item'
         titleWidth = '100%';
     }
 

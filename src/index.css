@@ -49,6 +49,22 @@ a, a:visited, a:hover, a:active {
   text-decoration: none;
 }
 
+.loading-logo{
+  opacity: 0;
+  z-index: 99;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: #1B1A1A;
+  transition: .5s;
+  animation: loadingFadeOut ease-out .8s;
+}
+
+.loading-logo img{
+  width: 128px;
+  aspect-ratio: auto;
+}
+
 .navbar-links .active{
   font-weight: 700;
 }
@@ -83,23 +99,35 @@ a, a:visited, a:hover, a:active {
 nav{
   width: 100vw;
   position: fixed;
-  transition: 0.3s;
+  transition: .3s;
   z-index: 2;
   top: 0;
 }
 
+.nav-wrap{
+  width: 100vw;
+  height: 88px;
+  position: fixed;
+  background-color: white;
+  z-index: 1;
+  top: -100px;
+  transition: .3s;
+}
+
 nav:hover{
-  background: white;
   color: #1B1A1A;
+}
+
+.nav:hover > .nav-wrap{
+  top: 0;
 }
 
 .nav-active{
   color: #1B1A1A;
-  background: white;
 }
 
 .nav-not-active{
-  background: linear-gradient(#0009,#fff0);
+  background: transparent;
   color: white;
 }
 
@@ -130,7 +158,7 @@ nav:hover{
 
 nav a{
   font-size: 20px;
-  transition: 0.2s;
+  transition: 0.5s;
 }
 
 nav a:hover{
@@ -199,10 +227,6 @@ nav a:hover{
   transition: .3s;
 }
 
-.bi:hover{
-  transform: scale(108%);
-}
-
 .bi-search{
   top: 1px;
   position: relative;
@@ -215,6 +239,8 @@ nav a:hover{
 .nav-not-active ~ .bi{
   color: white;
 }
+
+
 
 .shop-section{
   min-height: 100vh;
@@ -281,6 +307,14 @@ nav a:hover{
 
 .catalog-item:hover > img{
   transform: scale(102%);
+}
+
+.catalog-link{
+  transition: .2s;
+}
+
+.catalog-link:hover{
+  font-weight: 700;
 }
 
 .not-stocked{
@@ -452,8 +486,7 @@ nav a:hover{
   justify-content: flex-end;
   padding: 2rem;
   transition: .3s;
-  background-size: cover;
-  background-position: left center;
+  background-position: center;
   color: white;
 }
 
@@ -471,8 +504,13 @@ nav a:hover{
   background-color: transparent;
 }
 
-.news-section-link:hover{
-  transform: scale(102%);
+.news-section-link:hover >.large-item{
+  background-size: 103%;
+}
+
+.news-section-link:hover > .small-item{
+  background-size: 155%;
+  background-position: 2% center;
 }
 
 .news-flexbox{
@@ -484,6 +522,13 @@ nav a:hover{
 .large-item{
   height: 615px;
   aspect-ratio: auto;
+  background-position: center;
+  background-size: 100%;
+}
+
+.small-item{
+  background-size: 152%;
+  background-position: 0 center;
 }
 
 .bi-arrow-right{
@@ -550,6 +595,24 @@ nav a:hover{
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.footer-flexbox img{
+  width: 50px;
+  height: 33px;
+  margin-right: 95px;
+}
+
+.footer-logos{
+  gap: 15px;
+}
+
+.footer-logos .bi{
+  cursor: pointer;
+}
+
+.footer-logos .bi:hover{
+  color: #298bff;
 }
 
 .news-grid{
@@ -664,7 +727,7 @@ nav a:hover{
 }
 
 .button-product:hover{
-  background-color: #312d2d;
+  background-color: #298bff;
 }
 
 .about-section{

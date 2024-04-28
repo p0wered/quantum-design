@@ -13,10 +13,20 @@ import ProductPage from "./routes/product-page";
 function NavBar() {
 
     let [navPosition, setNavPosition] = useState(0);
+    let [navWrapPos, setNavWrapPos] = useState(-100);
     let [prevScroll, setPrevScroll] = useState(0);
     let [navClass, setNavClass] = useState('nav-not-active');
     let [isOpen, setIsOpen] = useState(false);
     let menuDisplay;
+
+    const mouseEnter = () => {
+        setNavWrapPos(0);
+    };
+
+    const mouseLeave = () => {
+        if (navClass !== 'nav-active')
+        setNavWrapPos(-100);
+    };
 
     if (isOpen) {
         navClass = 'nav-active'
@@ -30,12 +40,17 @@ function NavBar() {
             let currentScrollTop = window.scrollY;
 
             if (currentScrollTop > 15 && currentScrollTop > prevScroll) {
-                setNavPosition(-100);
-                setNavClass('nav-not-active');
+                if (isOpen !== true) {
+                    setNavPosition(-100);
+                    setNavWrapPos(-100);
+                    setNavClass('nav-not-active');
+                }
             } else if (currentScrollTop > 15 && currentScrollTop < prevScroll) {
                 setNavPosition(0);
+                setNavWrapPos(0);
                 setNavClass('nav-active');
             } else if (currentScrollTop < 15) {
+                setNavWrapPos(-100);
                 setNavPosition(0);
                 setNavClass('nav-not-active');
             }
@@ -55,7 +70,8 @@ function NavBar() {
 
     return (
         <div>
-            <nav className={navClass} style={{top: `${navPosition}px`}}>
+            <div className='nav-wrap' style={{top: `${navWrapPos}px`}}></div>
+            <nav className={navClass} style={{top: `${navPosition}px`}} onMouseEnter={mouseEnter} onMouseLeave={mouseLeave}>
                 <div className='container navbar-container'>
                     <div className="navbar-links">
                         <NavLink to="/">Home</NavLink>
@@ -90,8 +106,8 @@ export function Footer(){
         <div className='footer'>
             <div className='container' style={{padding: "1rem 2rem"}}>
                 <div className='footer-flexbox'>
-                    <img src={Logo} alt="Logo" style={{width: 75, height: 50}}/>
-                    <div className='flexbox-center' style={{gap: 15}}>
+                    <img src={Logo} alt="Logo"/>
+                    <div className='footer-logos flexbox-center'>
                         <i className="bi bi-twitter-x" style={{fontSize: 26}}></i>
                         <i className="bi bi-facebook" style={{fontSize: 26}}></i>
                         <i className="bi bi-youtube bi-search" style={{fontSize: 32}}></i>

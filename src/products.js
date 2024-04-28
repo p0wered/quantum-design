@@ -1,15 +1,5 @@
 export const ProductsData = [
     {
-        id: 75873,
-        category: "Cases",
-        name: "Terra",
-        price: 69.99,
-        stock: 100,
-        discount: 10,
-        color: ['green'],
-        image: require('./products/Terra_Jade_01-Left-Front-540x540.webp')
-    },
-    {
         id: 12332,
         category: "Cases",
         name: "North",
@@ -38,6 +28,16 @@ export const ProductsData = [
         discount: 30,
         color: ['black', 'white'],
         image: require('./products/Pop_Mini_Air_RGB_Black_TGC_1-Front-Left-540x540.webp')
+    },
+    {
+        id: 75873,
+        category: "Cases",
+        name: "Terra",
+        price: 69.99,
+        stock: 100,
+        discount: 10,
+        color: ['green'],
+        image: require('./products/Terra_Jade_01-Left-Front-540x540.webp')
     },
     {
         id: 34780,

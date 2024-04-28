@@ -6,11 +6,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Aos from 'aos'
 import 'aos/dist/aos.css'
-import {NavLink} from "react-router-dom";
+import {Link} from "react-router-dom";
 import NorthVideo from '../assets/north-case.mp4'
-import CreatorImg from '../assets/streamer-img.jpg';
-import RiserImg from '../assets/card-riser.jpg';
-import DotAwardImg from '../assets/dot-award.jpg';
 import {NewsItem} from "./news-page";
 import {Footer} from "../App";
 
@@ -54,8 +51,8 @@ function ProductSection({video, title, desc, category}) {
                 <h1>{title}</h1>
                 <h4 style={{fontWeight: 400, letterSpacing: 3}}>{desc}</h4>
                 <div className='button-list'>
-                    <button className='button-product'>BUY</button>
-                    <button className='button-product'>SEE ALL {category}</button>
+                    <Link to='/shop/product'><button className='button-product'>BUY</button></Link>
+                    <Link to='/shop'><button className='button-product'>SEE ALL {category}</button></Link>
                 </div>
             </div>
         </div>
@@ -86,7 +83,7 @@ function SaleCard({product}) {
     return (
         <div className='sale-card'>
             <img src={product.image} alt={product.name}/>
-            <NavLink to='/product'>
+            <Link to='/shop/product'>
                 <div className='sale-card-info'>
                     <p>{product.name}</p>
                     <div className='flexbox-center flexbox-row' style={{gap: 8}}>
@@ -94,7 +91,7 @@ function SaleCard({product}) {
                         <p>${finalPrice}</p>
                     </div>
                 </div>
-            </NavLink>
+            </Link>
         </div>
     );
 }
@@ -103,15 +100,22 @@ function NewsSection({data}) {
     return (
         <div className='news-section'>
             <div className='container news-container'>
-                <NavLink to={data[0]["path"]} className='news-section-link link-large' data-aos='fade-in' data-aos-duration='800'><NewsItem large={true}
-                                                                                                 title={data[0]["title"]}
-                                                                                                 image={CreatorImg}/></NavLink>
+                <Link key={NewsData[0].id} to={`/news/article/${NewsData[0].id}`} data-aos='fade-in' data-aos-duration='800'
+                      className='news-section-link link-large'>
+                    <NewsItem large={true} title={NewsData[0].title} image={NewsData[0].img}/>
+                </Link>
                 <div className='news-flexbox'>
-                    <NavLink to={data[1]["path"]} className='news-section-link' data-aos='fade-in' data-aos-duration='800'><NewsItem large={false} title={data[1]["title"]} image={RiserImg}/></NavLink>
-                    <NavLink to={data[2]["path"]} className='news-section-link' data-aos='fade-in' data-aos-duration='800'><NewsItem large={false} title={data[2]["title"]} image={DotAwardImg}/></NavLink>
+                    <Link key={NewsData[1].id} to={`/news/article/${NewsData[1].id}`} data-aos='fade-in' data-aos-duration='800'
+                          className='news-section-link'>
+                        <NewsItem title={NewsData[1].title} image={NewsData[1].img}/>
+                    </Link>
+                    <Link key={NewsData[2].id} to={`/news/article/${NewsData[2].id}`} data-aos='fade-in' data-aos-duration='800'
+                          className='news-section-link'>
+                        <NewsItem title={NewsData[2].title} image={NewsData[2].img}/>
+                    </Link>
                 </div>
                 <div className='show-news'>
-                    <NavLink to='/news' data-aos='fade-in' data-aos-duration='800'><p>SHOW ALL NEWS</p></NavLink>
+                    <Link to='/news' data-aos='fade-in' data-aos-duration='800'><p>SHOW ALL NEWS</p></Link>
                 </div>
             </div>
         </div>

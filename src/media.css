@@ -153,6 +153,13 @@
     .in-text-image{
         height: 20rem;
     }
+    .footer-flexbox img{
+        margin-right: 100%;
+    }
+    .footer-flexbox{
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
 }
 
 @keyframes bgFadeIn {
