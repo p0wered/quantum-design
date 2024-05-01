@@ -146,6 +146,7 @@ export const ProductsData = [
         price: 9.99,
         stock: 0,
         discount: 0,
+        color: ['black'],
         image: require('./products/Pop-USB-C-Cable-1-540x540.webp')
     },
     {
@@ -155,6 +156,7 @@ export const ProductsData = [
         price: 9.99,
         stock: 10,
         discount: 0,
+        color: ['black'],
         image: require('./products/Ion-Cable-ATX12VBox-540x540.webp')
     },
 ]

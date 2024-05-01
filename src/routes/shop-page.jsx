@@ -114,7 +114,7 @@ function ColorItem({color, value, setSelectedColors}) {
             <div className="checkboxes-item">
                 <label className="checkbox style-c">
                     <input type="checkbox" value={value} onChange={colorChange}/>
-                    <div className="checkbox-checkmark" style={{backgroundColor: color}}></div>
+                    <div className="checkbox-checkmark" style={{backgroundColor: color, borderRadius: 10}}></div>
                 </label>
             </div>
         </div>

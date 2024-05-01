@@ -96,20 +96,20 @@ function SaleCard({product}) {
     );
 }
 
-function NewsSection({data}) {
+function NewsSection() {
     return (
         <div className='news-section'>
             <div className='container news-container'>
-                <Link key={NewsData[0].id} to={`/news/article/${NewsData[0].id}`} data-aos='fade-in' data-aos-duration='800'
+                <Link to={`/news/article/${NewsData[0].id}`} data-aos='fade-in' data-aos-duration='800'
                       className='news-section-link link-large'>
                     <NewsItem large={true} title={NewsData[0].title} image={NewsData[0].img}/>
                 </Link>
                 <div className='news-flexbox'>
-                    <Link key={NewsData[1].id} to={`/news/article/${NewsData[1].id}`} data-aos='fade-in' data-aos-duration='800'
+                    <Link to={`/news/article/${NewsData[1].id}`} data-aos='fade-in' data-aos-duration='800'
                           className='news-section-link'>
                         <NewsItem title={NewsData[1].title} image={NewsData[1].img}/>
                     </Link>
-                    <Link key={NewsData[2].id} to={`/news/article/${NewsData[2].id}`} data-aos='fade-in' data-aos-duration='800'
+                    <Link to={`/news/article/${NewsData[2].id}`} data-aos='fade-in' data-aos-duration='800'
                           className='news-section-link'>
                         <NewsItem title={NewsData[2].title} image={NewsData[2].img}/>
                     </Link>
@@ -151,7 +151,7 @@ export default function Home() {
         <div>
             <ProductSection video={NorthVideo} title='NORTH' desc='Transform your gaming space' category='CASES'/>
             <SaleSection/>
-            <NewsSection data={NewsData}/>
+            <NewsSection/>
             <BlogSection/>
             <Footer/>
         </div>

@@ -9,6 +9,7 @@ import Logo from './qd-white.png'
 import ShopPage from "./routes/shop-page";
 import ArticlePage from "./routes/article-page";
 import ProductPage from "./routes/product-page";
+import TestPage from "./routes/test-page";
 
 function NavBar() {
 
@@ -17,6 +18,7 @@ function NavBar() {
     let [prevScroll, setPrevScroll] = useState(0);
     let [navClass, setNavClass] = useState('nav-not-active');
     let [isOpen, setIsOpen] = useState(false);
+    let currentUrl = window.location.pathname;
     let menuDisplay;
 
     const mouseEnter = () => {
@@ -24,7 +26,7 @@ function NavBar() {
     };
 
     const mouseLeave = () => {
-        if (navClass !== 'nav-active')
+        if (navClass !== 'nav-active' && currentUrl !== '/shop/product')
         setNavWrapPos(-100);
     };
 
@@ -40,7 +42,7 @@ function NavBar() {
             let currentScrollTop = window.scrollY;
 
             if (currentScrollTop > 15 && currentScrollTop > prevScroll) {
-                if (isOpen !== true) {
+                if (isOpen !== true && currentUrl !== '/shop/product') {
                     setNavPosition(-100);
                     setNavWrapPos(-100);
                     setNavClass('nav-not-active');
@@ -49,7 +51,7 @@ function NavBar() {
                 setNavPosition(0);
                 setNavWrapPos(0);
                 setNavClass('nav-active');
-            } else if (currentScrollTop < 15) {
+            } else if (currentScrollTop < 15 && currentUrl !== '/shop/product') {
                 setNavWrapPos(-100);
                 setNavPosition(0);
                 setNavClass('nav-not-active');
@@ -101,8 +103,8 @@ function NavBar() {
     );
 }
 
-export function Footer(){
-    return(
+export function Footer() {
+    return (
         <div className='footer'>
             <div className='container' style={{padding: "1rem 2rem"}}>
                 <div className='footer-flexbox'>
@@ -131,6 +133,7 @@ export default function App() {
                 <Route path="/shop" element={<ShopPage/>}/>
                 <Route path="/news/article/:id" element={<ArticlePage/>}/>
                 <Route path="/shop/product" element={<ProductPage/>}/>
+                <Route path="/test" element={<TestPage/>}/>
             </Routes>
         </BrowserRouter>
     );

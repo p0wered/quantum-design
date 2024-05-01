@@ -1,7 +1,7 @@
 import RangeSlider from "react-range-slider-input";
 import {useState} from "react";
 
-export default function AboutPage() {
+export default function TestPage() {
     const [minValue, setMinValue] = useState(0);
     const [maxValue, setMaxValue] = useState(100);
 
