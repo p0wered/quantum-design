@@ -69,7 +69,7 @@ function SaleSection() {
     return (
         <div className='sale-section' >
             <h2 style={{color: 'white'}} data-aos='fade-in' data-aos-duration='800'>BEST SALES</h2>
-            <div className='slider-container' data-aos='fade-in' data-aos-duration='800'>
+            <div className='slider-container slider-home' data-aos='fade-in' data-aos-duration='800'>
                 <SimpleSlider slidesAmount={currentWidth < 1200 ? 3 : 4} slidesPerScroll={currentWidth < 1200 ? 1 : 4} products={ProductsData}/>
             </div>
         </div>

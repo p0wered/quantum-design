@@ -10,6 +10,7 @@ import ShopPage from "./routes/shop-page";
 import ArticlePage from "./routes/article-page";
 import ProductPage from "./routes/product-page";
 import TestPage from "./routes/test-page";
+import ErrorPage from "./routes/error-page";
 
 function NavBar() {
 
@@ -18,7 +19,6 @@ function NavBar() {
     let [prevScroll, setPrevScroll] = useState(0);
     let [navClass, setNavClass] = useState('nav-not-active');
     let [isOpen, setIsOpen] = useState(false);
-    let currentUrl = window.location.pathname;
     let menuDisplay;
 
     const mouseEnter = () => {
@@ -26,7 +26,7 @@ function NavBar() {
     };
 
     const mouseLeave = () => {
-        if (navClass !== 'nav-active' && currentUrl !== '/shop/product')
+        if (navClass !== 'nav-active')
         setNavWrapPos(-100);
     };
 
@@ -42,7 +42,7 @@ function NavBar() {
             let currentScrollTop = window.scrollY;
 
             if (currentScrollTop > 15 && currentScrollTop > prevScroll) {
-                if (isOpen !== true && currentUrl !== '/shop/product') {
+                if (isOpen !== true) {
                     setNavPosition(-100);
                     setNavWrapPos(-100);
                     setNavClass('nav-not-active');
@@ -51,7 +51,7 @@ function NavBar() {
                 setNavPosition(0);
                 setNavWrapPos(0);
                 setNavClass('nav-active');
-            } else if (currentScrollTop < 15 && currentUrl !== '/shop/product') {
+            } else if (currentScrollTop < 15) {
                 setNavWrapPos(-100);
                 setNavPosition(0);
                 setNavClass('nav-not-active');
@@ -82,8 +82,8 @@ function NavBar() {
                     </div>
                     <NavLink to="/" className='logo-link'>Quantum<span style={{fontWeight: 700}}>Design</span></NavLink>
                     <div className="navbar-links links-right">
-                        <NavLink to="/"><i className="bi bi-bag"></i></NavLink>
-                        <NavLink to="/"><i className="bi bi-search"></i></NavLink>
+                        <NavLink to="/error"><i className="bi bi-bag"></i></NavLink>
+                        <NavLink to="/error"><i className="bi bi-search"></i></NavLink>
                     </div>
                     <Squash toggled={isOpen} toggle={setIsOpen}></Squash>
                 </div>
@@ -95,8 +95,8 @@ function NavBar() {
                     <NavLink className='mobile-link' to="/about" onClick={closeOnClick}>About</NavLink>
                 </div>
                 <div className="links-bottom">
-                    <NavLink to="/"><i className="bi bi-bag" style={{fontSize: 42}}></i></NavLink>
-                    <NavLink to="/"><i className="bi bi-search" style={{fontSize: 42}}></i></NavLink>
+                    <NavLink to="/error"><i className="bi bi-bag" style={{fontSize: 42}}></i></NavLink>
+                    <NavLink to="/error"><i className="bi bi-search" style={{fontSize: 42}}></i></NavLink>
                 </div>
             </div>
         </div>
@@ -114,7 +114,9 @@ export function Footer() {
                         <i className="bi bi-facebook" style={{fontSize: 26}}></i>
                         <i className="bi bi-youtube bi-search" style={{fontSize: 32}}></i>
                     </div>
-                    <button className='button-footer'>Find Retailers</button>
+                    <NavLink to='/error'>
+                        <button className='button-footer'>Find Retailers</button>
+                    </NavLink>
                 </div>
             </div>
         </div>
@@ -134,6 +136,7 @@ export default function App() {
                 <Route path="/news/article/:id" element={<ArticlePage/>}/>
                 <Route path="/shop/product" element={<ProductPage/>}/>
                 <Route path="/test" element={<TestPage/>}/>
+                <Route path="/error" element={<ErrorPage/>}/>
             </Routes>
         </BrowserRouter>
     );

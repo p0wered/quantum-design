@@ -357,6 +357,11 @@ nav a:hover{
   overflow: hidden;
 }
 
+.section-wrapper-sm{
+  height: 40vh;
+  overflow: hidden;
+}
+
 .desc{
   letter-spacing: 5px;
   font-weight: 300;
@@ -394,9 +399,14 @@ nav a:hover{
   overflow: hidden;
 }
 
-.slider-container{
+.slider-home{
   width: 1400px;
   padding: 2rem 4rem;
+}
+
+.slider-product{
+  width: 540px;
+  margin: 2rem;
 }
 
 .sale-card{
@@ -406,6 +416,7 @@ nav a:hover{
   aspect-ratio: 3/4;
   transition: .3s;
   background-color: white;
+  margin: 0 10px;
 }
 
 .sale-card img{
@@ -435,10 +446,6 @@ nav a:hover{
 
 .text-gray{
   color: rgb(128, 128, 128);
-}
-
-.slick-slide > div {
-  margin: 0 10px;
 }
 
 .slick-list {
@@ -750,18 +757,21 @@ nav a:hover{
   display: flex;
   align-items: center;
   background-color: white;
+  overflow: hidden;
 }
 
-.product-img{
-  background-color: #298bff;
-  width: 100px;
-  height: 100px;
+.product-inner{
+  max-width: 550px;
 }
 
 .product-buttons{
-  display: flex;
-  justify-content: space-between;
   align-items: center;
+  gap: 2rem;
+}
+
+.product-padding{
+  margin-bottom: 2rem;
+  background-color: white;
 }
 
 .color-select{
@@ -791,4 +801,31 @@ nav a:hover{
 
 .product-path a:hover{
   color: #298bff;
+}
+
+.product-info p{
+  color: #575757;
+  font-size: 16px;
+}
+
+.slick-arrow .bi{
+  color: #1B1A1A;
+  top: -22px;
+  position: relative;
+}
+
+.product-desc{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.specifications-grid{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.specifications-grid .item{
+  margin: 0 1rem 2rem 0;
 }
