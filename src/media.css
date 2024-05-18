@@ -180,6 +180,9 @@
         gap: 1rem;
         flex-wrap: wrap;
     }
+    .footer-flexbox img{
+        display: none;
+    }
     .product-padding{
         margin-bottom: 0;
     }

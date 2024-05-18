@@ -9,7 +9,6 @@ import Logo from './qd-white.png'
 import ShopPage from "./routes/shop-page";
 import ArticlePage from "./routes/article-page";
 import ProductPage from "./routes/product-page";
-import TestPage from "./routes/test-page";
 import ErrorPage from "./routes/error-page";
 
 function NavBar() {
@@ -19,7 +18,8 @@ function NavBar() {
     let [prevScroll, setPrevScroll] = useState(0);
     let [navClass, setNavClass] = useState('nav-not-active');
     let [isOpen, setIsOpen] = useState(false);
-    let menuDisplay;
+    let menuPosition;
+    let menuOpacity;
 
     const mouseEnter = () => {
         setNavWrapPos(0);
@@ -31,10 +31,12 @@ function NavBar() {
     };
 
     if (isOpen) {
-        navClass = 'nav-active'
-        menuDisplay = 0
+        navClass = 'nav-active';
+        menuPosition = 0;
+        menuOpacity = 1;
     } else {
-        menuDisplay = '100vw'
+        menuOpacity = 0;
+        menuPosition = '200vw';
     }
 
     useEffect(() => {
@@ -66,8 +68,9 @@ function NavBar() {
         };
     }, [prevScroll, isOpen]);
 
-    function closeOnClick() {
-        isOpen ? isOpen = false : isOpen = true
+    const closeOnClick = () => {
+        setIsOpen(false);
+        setNavClass('nav-active')
     }
 
     return (
@@ -88,7 +91,7 @@ function NavBar() {
                     <Squash toggled={isOpen} toggle={setIsOpen}></Squash>
                 </div>
             </nav>
-            <div className='mobile-menu' style={{left: menuDisplay}}>
+            <div className='mobile-menu' style={{left: menuPosition, opacity: menuOpacity}}>
                 <div className="mobile-navbar-links">
                     <NavLink className='mobile-link' to="/" onClick={closeOnClick}>Home</NavLink>
                     <NavLink className='mobile-link' to="/catalog" onClick={closeOnClick}>Catalog</NavLink>
@@ -135,7 +138,6 @@ export default function App() {
                 <Route path="/shop" element={<ShopPage/>}/>
                 <Route path="/news/article/:id" element={<ArticlePage/>}/>
                 <Route path="/shop/product" element={<ProductPage/>}/>
-                <Route path="/test" element={<TestPage/>}/>
                 <Route path="/error" element={<ErrorPage/>}/>
             </Routes>
         </BrowserRouter>

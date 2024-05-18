@@ -44,6 +44,24 @@ h4{
   font-size: 24px;
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+textarea:focus, input:focus{
+  outline: none;
+}
+
+*:focus {
+  outline: none;
+}
+
 a, a:visited, a:hover, a:active {
   font-size: 18px;
   color: inherit;
@@ -134,6 +152,7 @@ nav:hover{
 }
 
 .navbar-container{
+  height: 88px;
   padding: 1.625rem;
   display: flex;
   justify-content: space-between;
@@ -184,7 +203,7 @@ nav a:hover{
   width: 100%;
   position: fixed;
   background-color: white;
-  transition: 0.3s;
+  transition: 0.4s;
   z-index: 1;
   overflow-y: scroll;
 }
@@ -239,9 +258,10 @@ nav a:hover{
   flex-direction: column;
   gap: 8px;
   background-color: #FFFFFF;
-  width: fit-content;
+  width: 268px;
   padding: 2rem;
   transition: .3s;
+  overflow: hidden;
 }
 
 .filters-block{
@@ -302,6 +322,7 @@ nav a:hover{
 
 .not-stocked{
   color: #c2c2c2 !important;
+  pointer-events: none;
 }
 
 .not-stocked > img{
@@ -828,4 +849,23 @@ nav a:hover{
 
 .specifications-grid .item{
   margin: 0 1rem 2rem 0;
+}
+
+.price-input{
+  padding: 6px;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+.price-input input{
+  border: none;
+  width: 4rem;
+  font-size: 15px;
+}
+
+.price-merger{
+  margin-top: -8px;
+  display: flex;
+  flex-direction: column;
+  color: gray;
 }

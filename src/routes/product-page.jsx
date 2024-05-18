@@ -86,7 +86,7 @@ export default function ProductPage() {
                         <div className='flexbox-column product-info' style={{gap: '2.325rem'}}>
                             <div className='flexbox-row title' style={{gap: '1rem', alignItems: 'end'}}>
                                 <h2 style={{fontWeight: 600, lineHeight: 0.7}}>North</h2>
-                                <h4 style={{fontWeight: 400, lineHeight: 1.3}}>39.99$</h4>
+                                <h4 style={{fontWeight: 400, lineHeight: 1.3}}>79.99$</h4>
                             </div>
                             <div className='flexbox-column' style={{gap: "8px"}}>
                                 <p>• Enhance the look of your gaming station with FSC-certified wood and alloy

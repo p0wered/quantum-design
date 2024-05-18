@@ -3,9 +3,8 @@ import {useState} from "react";
 import {NavLink} from "react-router-dom";
 import ShopImg from '../assets/shop.jpg'
 import {TitleSection} from "./catalog-page";
-import 'react-range-slider-input/dist/style.css';
 
-function Filters({products, setCategories, setColors}) {
+function Filters({products, setCategories, setColors, priceValue, setPriceValue}) {
     const categories = [];
     const categoriesIncluded = [];
     const colors = [];
@@ -43,7 +42,6 @@ function Filters({products, setCategories, setColors}) {
         <div className='filters'>
             <div className='flexbox-row' style={{justifyContent: 'space-between'}}>
                 <h4 style={{fontWeight: 700}}>Refine By</h4>
-                <i className="bi bi-caret-down-fill"></i>
             </div>
             <p>Category</p>
             <div className='filters-block'>
@@ -53,11 +51,50 @@ function Filters({products, setCategories, setColors}) {
             <div className='filters-block-row'>
                 {colors}
             </div>
+            <p style={{marginTop: 20}}>Price, $</p>
+            <PriceSlider price={priceValue} setPrice={setPriceValue}/>
         </div>
     );
 }
 
-function CategoryItem({ category, value, setSelectedCategories }) {
+function PriceSlider({price, setPrice}) {
+    const handleMinPriceChange = (event) => {
+        const newMinPrice = parseInt(event.target.value);
+        setPrice([newMinPrice, price[1]]);
+    }
+
+    const handleMaxPriceChange = (event) => {
+        const newMaxPrice = parseInt(event.target.value);
+        setPrice([price[0], newMaxPrice]);
+    }
+
+    return (
+        <div className="flexbox-row" style={{ gap: 8 }}>
+            <div className='price-merger'>
+                <small>from</small>
+                <label className="price-input">
+                    <input
+                        type="number"
+                        value={price[0]}
+                        onInput={handleMinPriceChange}
+                    />
+                </label>
+            </div>
+            <div className='price-merger'>
+                <small>to</small>
+                <label className='price-input'>
+                    <input
+                        type="number"
+                        value={price[1]}
+                        onInput={handleMaxPriceChange}
+                    />
+                </label>
+            </div>
+        </div>
+    );
+}
+
+function CategoryItem({category, value, setSelectedCategories}) {
     const handleChange = (event) => {
         const categoryChecked = event.target.checked;
 
@@ -84,8 +121,8 @@ function CategoryItem({ category, value, setSelectedCategories }) {
 }
 
 function CatalogItem({product}) {
-    let stocked
-    product.stock > 0 ? stocked = 'catalog-item' : stocked = 'catalog-item not-stocked'
+    let stocked;
+    product.stock > 0 ? stocked = 'catalog-item' : stocked = 'catalog-item not-stocked';
 
     return (
         <NavLink to='/shop/product' className={stocked}>
@@ -121,36 +158,69 @@ function ColorItem({color, value, setSelectedColors}) {
     );
 }
 
-function CatalogGrid({products, filterCategory, filterColor}) {
-    const filteredProducts = products.filter(product => {
+function CatalogGrid({ products, filterCategory, filterColor, filterPrice }) {
+    const filteredProducts = products.filter((product) => {
         if (filterCategory.length > 0 && !filterCategory.includes(product.category)) {
             return false;
         }
-        return !(filterColor.length > 0 && (!product.color || !product.color.some(color => filterColor.includes(color))));
+        if (
+            filterPrice[0] > 0 &&
+            product.price < filterPrice[0]
+        ) {
+            return false;
+        }
+        if (
+            filterPrice[1] > 0 &&
+            product.price > filterPrice[1]
+        ) {
+            return false;
+        }
+        return !(
+            filterColor.length > 0 &&
+            (!product.color ||
+                !product.color.some((color) => filterColor.includes(color)))
+        );
     });
 
     return (
         <div className="catalog-grid">
-            {filteredProducts.map(product => (
-                <CatalogItem product={product} key={product.id}/>
+            {filteredProducts.map((product) => (
+                <CatalogItem product={product} key={product.id} />
             ))}
         </div>
     );
 }
 
 export default function ShopPage() {
+    let maxPrice = 0;
+    ProductsData.forEach((product) => {
+        if (product.price > maxPrice) {
+            maxPrice = product.price;
+        }
+    })
+
     const [selectedCategories, setSelectedCategories] = useState([]);
     const [selectedColors, setSelectedColors] = useState([]);
+    const [priceMinMax, setPriceMinMax] = useState([0, maxPrice]);
 
     return (
         <div>
-            <TitleSection image={ShopImg} title='SHOP' desc='See our products'/>
+            <TitleSection image={ShopImg} small={true} title='SHOP' desc='See our products'/>
             <div className='shop-section'>
                 <div className='container-large'>
                     <div className='filters-flexbox'>
-                        <Filters products={ProductsData} categories={selectedCategories}
-                                 setCategories={setSelectedCategories} setColors={setSelectedColors}/>
-                        <CatalogGrid products={ProductsData} filterCategory={selectedCategories} filterColor={selectedColors}/>
+                        <Filters products={ProductsData}
+                                 categories={selectedCategories}
+                                 setCategories={setSelectedCategories}
+                                 setColors={setSelectedColors}
+                                 priceValue={priceMinMax}
+                                 setPriceValue={setPriceMinMax}
+                        />
+                        <CatalogGrid products={ProductsData}
+                                     filterCategory={selectedCategories}
+                                     filterColor={selectedColors}
+                                     filterPrice={priceMinMax}
+                        />
                     </div>
                 </div>
             </div>
