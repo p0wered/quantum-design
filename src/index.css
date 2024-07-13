@@ -395,6 +395,7 @@ nav a:hover{
 }
 
 .button-product{
+  position: relative;
   cursor: pointer;
   font-size: 14px;
   font-weight: 600;
@@ -868,4 +869,34 @@ nav a:hover{
   display: flex;
   flex-direction: column;
   color: gray;
+}
+
+.home-about{
+  height: 95vh;
+  overflow: hidden;
+}
+
+.home-about-inner{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.secondary-button{
+  position: relative;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+  width: calc(12rem + 5vw);
+  padding: calc(1.625rem + 0.325vw) 0;
+  border: 1px solid white;
+  background: transparent;
+  transition: 0.3s;
+}
+
+.secondary-button:hover{
+  border: 1px solid #298bff;
+  background-color: #298bff;
 }

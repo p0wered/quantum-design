@@ -4,12 +4,15 @@ import {NewsData} from '../news.js';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Aos from 'aos'
-import 'aos/dist/aos.css'
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 import {Link} from "react-router-dom";
-import NorthVideo from '../assets/north-case.mp4'
+import NorthVideo from '../assets/north-case.mp4';
 import {NewsItem} from "./news-page";
 import {Footer} from "../App";
+import BuildImg from '../assets/pc_building.jpg';
+import Sketch from '../assets/sketch-work.jpg';
+import {ParallaxBanner, ParallaxProvider} from "react-scroll-parallax";
 
 export function SimpleSlider({ slidesAmount, slidesPerScroll, products }) {
     let settings = {
@@ -146,12 +149,54 @@ function BlogSection (){
     );
 }
 
+function HomeToAbout(){
+    return(
+        <div className='home-about'>
+            <ParallaxProvider>
+                <ParallaxBanner className='title-section image-box' layers={[{image: BuildImg, speed: -20}]}>
+                    <div>
+                        <h2 data-aos='fade-in' data-aos-duration='700' style={{maxWidth: 900}}>
+                            Let's take a walk down memory lane and smile at our humble beginnings
+                        </h2>
+                        <br></br>
+                        <div data-aos='fade-in' data-aos-duration='700'>
+                            <Link to='/about'><button className='secondary-button'>LEARN MORE ABOUT US</button></Link>
+                        </div>
+                    </div>
+                </ParallaxBanner>
+            </ParallaxProvider>
+        </div>
+    )
+}
+
+function CareerSection(){
+    return(
+        <div className='home-about'>
+            <ParallaxProvider>
+                <ParallaxBanner className='title-section image-box' layers={[{image: Sketch, speed: -20}]}>
+                    <div>
+                        <h2 data-aos='fade-in' data-aos-duration='700' style={{maxWidth: 900}}>
+                            Careers at Fractal Design
+                        </h2>
+                        <br></br>
+                        <div data-aos='fade-in' data-aos-duration='700'>
+                            <Link to='/error'><button className='secondary-button'>VIEW ALL POSITIONS</button></Link>
+                        </div>
+                    </div>
+                </ParallaxBanner>
+            </ParallaxProvider>
+        </div>
+    )
+}
+
 export default function Home() {
     return (
         <div>
             <ProductSection video={NorthVideo} title='NORTH' desc='Transform your gaming space' category='CASES'/>
             <SaleSection/>
             <NewsSection/>
+            <HomeToAbout/>
+            <CareerSection/>
             <BlogSection/>
             <Footer/>
         </div>
